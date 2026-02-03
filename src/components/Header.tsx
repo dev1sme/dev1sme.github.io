@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-
-const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Education', href: '#education' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
-];
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Header = () => {
+  const { t } = useLanguage();
+  
+  const navItems = [
+    { label: t('Trang chủ', 'Home'), href: '#home' },
+    { label: t('Giới thiệu', 'About'), href: '#about' },
+    { label: t('Học vấn', 'Education'), href: '#education' },
+    { label: t('Kinh nghiệm', 'Experience'), href: '#experience' },
+    { label: t('Kỹ năng', 'Skills'), href: '#skills' },
+    { label: t('Dự án', 'Projects'), href: '#projects' },
+    { label: t('Liên hệ', 'Contact'), href: '#contact' },
+  ];
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -38,20 +42,8 @@ const Header = () => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <motion.a
-            href="#home"
-            className="text-2xl font-heading font-bold gradient-text"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('#home');
-            }}
-          >
-            LTT
-          </motion.a>
+          {/* Language Switcher */}
+          <LanguageSwitcher />
 
           {/* Desktop Navigation */}
           <motion.ul
