@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeSwitcher from './ThemeSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Header = () => {
@@ -42,8 +43,11 @@ const Header = () => {
     >
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Language Switcher */}
-          <LanguageSwitcher />
+          {/* Language & Theme Switcher */}
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <ThemeSwitcher />
+          </div>
 
           {/* Desktop Navigation */}
           <motion.ul

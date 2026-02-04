@@ -2,75 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Code, Database, Server, Cloud, Wrench, Globe } from 'lucide-react';
-
-const skillCategories = [
-  {
-    icon: Code,
-    title: 'Ngôn ngữ lập trình',
-    skills: [
-      { name: 'Java', level: 90 },
-      { name: 'C#', level: 70 },
-      { name: 'C++', level: 60 },
-      { name: 'JavaScript', level: 65 },
-      { name: 'Python', level: 55 },
-    ],
-  },
-  {
-    icon: Server,
-    title: 'Frameworks & Libraries',
-    skills: [
-      { name: 'Spring Boot', level: 85 },
-      { name: 'Hibernate', level: 75 },
-      { name: 'Angular', level: 60 },
-      { name: 'React', level: 55 },
-      { name: '.NET', level: 50 },
-    ],
-  },
-  {
-    icon: Database,
-    title: 'Databases',
-    skills: [
-      { name: 'MySQL', level: 85 },
-      { name: 'PostgreSQL', level: 75 },
-      { name: 'Oracle', level: 65 },
-      { name: 'MongoDB', level: 60 },
-      { name: 'Redis', level: 55 },
-    ],
-  },
-  {
-    icon: Cloud,
-    title: 'DevOps & Cloud',
-    skills: [
-      { name: 'Docker', level: 75 },
-      { name: 'AWS', level: 50 },
-      { name: 'Firebase', level: 65 },
-      { name: 'CI/CD', level: 60 },
-      { name: 'Linux', level: 70 },
-    ],
-  },
-  {
-    icon: Wrench,
-    title: 'Tools & Others',
-    skills: [
-      { name: 'Git', level: 85 },
-      { name: 'Jira', level: 70 },
-      { name: 'Postman', level: 80 },
-      { name: 'IntelliJ IDEA', level: 85 },
-      { name: 'VS Code', level: 80 },
-    ],
-  },
-  {
-    icon: Globe,
-    title: 'Soft Skills',
-    skills: [
-      { name: 'Teamwork', level: 85 },
-      { name: 'Problem Solving', level: 80 },
-      { name: 'Communication', level: 75 },
-      { name: 'Time Management', level: 70 },
-      { name: 'English', level: 65 },
-    ],
-  },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const SkillBar = ({ name, level, delay }: { name: string; level: number; delay: number }) => {
   const ref = useRef(null);
@@ -84,10 +16,7 @@ const SkillBar = ({ name, level, delay }: { name: string; level: number; delay: 
       </div>
       <div className="h-2 bg-muted rounded-full overflow-hidden">
         <motion.div
-          className="h-full rounded-full"
-          style={{
-            background: 'linear-gradient(90deg, hsl(185 100% 50%), hsl(200 100% 60%))',
-          }}
+          className="h-full rounded-full bg-primary"
           initial={{ width: 0 }}
           animate={isInView ? { width: `${level}%` } : { width: 0 }}
           transition={{ duration: 1, delay: delay * 0.1, ease: 'easeOut' }}
@@ -98,8 +27,80 @@ const SkillBar = ({ name, level, delay }: { name: string; level: number; delay: 
 };
 
 const SkillsSection = () => {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const skillCategories = [
+    {
+      icon: Code,
+      title: t('Ngôn ngữ lập trình', 'Programming Languages'),
+      skills: [
+        { name: 'Java', level: 90 },
+        { name: 'C#', level: 70 },
+        { name: 'C++', level: 60 },
+        { name: 'JavaScript', level: 65 },
+        { name: 'Python', level: 55 },
+      ],
+    },
+    {
+      icon: Server,
+      title: 'Frameworks & Libraries',
+      skills: [
+        { name: 'Spring Boot', level: 85 },
+        { name: 'Hibernate', level: 75 },
+        { name: 'Angular', level: 60 },
+        { name: 'React', level: 55 },
+        { name: '.NET', level: 50 },
+      ],
+    },
+    {
+      icon: Database,
+      title: 'Databases',
+      skills: [
+        { name: 'MySQL', level: 85 },
+        { name: 'PostgreSQL', level: 75 },
+        { name: 'Oracle', level: 65 },
+        { name: 'MongoDB', level: 60 },
+        { name: 'Redis', level: 55 },
+      ],
+    },
+    {
+      icon: Cloud,
+      title: 'DevOps & Cloud',
+      skills: [
+        { name: 'Docker', level: 75 },
+        { name: 'AWS', level: 50 },
+        { name: 'Firebase', level: 65 },
+        { name: 'CI/CD', level: 60 },
+        { name: 'Linux', level: 70 },
+      ],
+    },
+    {
+      icon: Wrench,
+      title: t('Công cụ & Khác', 'Tools & Others'),
+      skills: [
+        { name: 'Git', level: 85 },
+        { name: 'Jira', level: 70 },
+        { name: 'Postman', level: 80 },
+        { name: 'IntelliJ IDEA', level: 85 },
+        { name: 'VS Code', level: 80 },
+      ],
+    },
+    {
+      icon: Globe,
+      title: t('Kỹ năng mềm', 'Soft Skills'),
+      skills: [
+        { name: t('Làm việc nhóm', 'Teamwork'), level: 85 },
+        { name: t('Giải quyết vấn đề', 'Problem Solving'), level: 80 },
+        { name: t('Giao tiếp', 'Communication'), level: 75 },
+        { name: t('Quản lý thời gian', 'Time Management'), level: 70 },
+        { name: t('Tiếng Anh', 'English'), level: 65 },
+      ],
+    },
+  ];
+
+  const otherTechs = ['Kafka', 'RabbitMQ', 'Elasticsearch', 'GraphQL', 'REST API', 'Microservices', 'Design Patterns', 'Agile/Scrum'];
 
   return (
     <section id="skills" className="py-24 bg-card/30" ref={ref}>
@@ -112,9 +113,9 @@ const SkillsSection = () => {
         >
           <h2 className="section-heading">
             <span className="text-primary font-mono text-lg font-normal">04.</span>{' '}
-            Kỹ năng
+            {t('Kỹ năng', 'Skills')}
           </h2>
-          <p className="section-subheading">Những gì tôi có thể làm</p>
+          <p className="section-subheading">{t('Những gì tôi có thể làm', 'What I can do')}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -156,15 +157,13 @@ const SkillsSection = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-12 text-center"
         >
-          <p className="text-muted-foreground mb-6">Các công nghệ khác tôi đã sử dụng:</p>
+          <p className="text-muted-foreground mb-6">{t('Các công nghệ khác tôi đã sử dụng:', 'Other technologies I have used:')}</p>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-            {['Kafka', 'RabbitMQ', 'Elasticsearch', 'GraphQL', 'REST API', 'Microservices', 'Design Patterns', 'Agile/Scrum'].map(
-              (tech) => (
-                <span key={tech} className="skill-tag">
-                  {tech}
-                </span>
-              )
-            )}
+            {otherTechs.map((tech) => (
+              <span key={tech} className="skill-tag">
+                {tech}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>

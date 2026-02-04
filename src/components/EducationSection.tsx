@@ -2,43 +2,54 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
-
-const educationData = [
-  {
-    period: '2019 - 2023',
-    school: 'Đại học Tôn Đức Thắng',
-    location: 'TP. Hồ Chí Minh, Việt Nam',
-    degree: 'Cử nhân Công nghệ thông tin',
-    major: 'Chuyên ngành: Mạng máy tính',
-    gpa: '7.60/10',
-    description: 'Hoàn thành chương trình đại học với kiến thức vững chắc về lập trình, cơ sở dữ liệu và mạng máy tính.',
-    flag: '🇻🇳',
-  },
-  {
-    period: '06/2024 - 09/2024',
-    school: 'Đại học Công Nghệ Hoa Nam',
-    location: 'Trung Quốc',
-    degree: 'Chương trình trao đổi',
-    major: 'AI & Machine Learning',
-    gpa: '9/10',
-    description: 'Tham gia chương trình trao đổi quốc tế, nghiên cứu về trí tuệ nhân tạo và học máy.',
-    flag: '🇨🇳',
-  },
-  {
-    period: '09/2024 - 12/2024',
-    school: 'Đại học Công Nghệ Jeonju',
-    location: 'Hàn Quốc',
-    degree: 'Chương trình trao đổi',
-    major: 'Cloud & AI',
-    gpa: '3.5/4.0',
-    description: 'Nghiên cứu về điện toán đám mây và ứng dụng AI trong thực tiễn.',
-    flag: '🇰🇷',
-  },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const EducationSection = () => {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const educationData = [
+    {
+      period: '2019 - 2023',
+      school: t('Đại học Tôn Đức Thắng', 'Ton Duc Thang University'),
+      location: t('TP. Hồ Chí Minh, Việt Nam', 'Ho Chi Minh City, Vietnam'),
+      degree: t('Cử nhân Công nghệ thông tin', 'Bachelor of Information Technology'),
+      major: t('Chuyên ngành: Mạng máy tính', 'Major: Computer Networks'),
+      gpa: '7.60/10',
+      description: t(
+        'Hoàn thành chương trình đại học với kiến thức vững chắc về lập trình, cơ sở dữ liệu và mạng máy tính.',
+        'Completed university program with solid knowledge in programming, databases and computer networks.'
+      ),
+      flag: '🇻🇳',
+    },
+    {
+      period: '06/2024 - 09/2024',
+      school: t('Đại học Công Nghệ Hoa Nam', 'South China University of Technology'),
+      location: t('Trung Quốc', 'China'),
+      degree: t('Chương trình trao đổi', 'Exchange Program'),
+      major: 'AI & Machine Learning',
+      gpa: '9/10',
+      description: t(
+        'Tham gia chương trình trao đổi quốc tế, nghiên cứu về trí tuệ nhân tạo và học máy.',
+        'Participated in international exchange program, researching artificial intelligence and machine learning.'
+      ),
+      flag: '🇨🇳',
+    },
+    {
+      period: '09/2024 - 12/2024',
+      school: t('Đại học Công Nghệ Jeonju', 'Jeonju University'),
+      location: t('Hàn Quốc', 'South Korea'),
+      degree: t('Chương trình trao đổi', 'Exchange Program'),
+      major: 'Cloud & AI',
+      gpa: '3.5/4.0',
+      description: t(
+        'Nghiên cứu về điện toán đám mây và ứng dụng AI trong thực tiễn.',
+        'Researched cloud computing and practical AI applications.'
+      ),
+      flag: '🇰🇷',
+    },
+  ];
 
   return (
     <section id="education" className="py-24 bg-card/30" ref={ref}>
@@ -51,9 +62,9 @@ const EducationSection = () => {
         >
           <h2 className="section-heading">
             <span className="text-primary font-mono text-lg font-normal">02.</span>{' '}
-            Học vấn
+            {t('Học vấn', 'Education')}
           </h2>
-          <p className="section-subheading">Quá trình học tập của tôi</p>
+          <p className="section-subheading">{t('Quá trình học tập của tôi', 'My educational journey')}</p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto relative">

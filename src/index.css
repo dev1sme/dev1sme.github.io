@@ -5,77 +5,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap');
 
 /* Design System for Lê Tuấn Thông Portfolio
-   Modern dark theme with cyan accents */
+   Minimalist theme with warm neutral tones */
 
 @layer base {
   :root {
-    --background: 222 25% 6%;
-    --foreground: 210 20% 90%;
+    --background: 0 0% 98%;
+    --foreground: 0 0% 15%;
 
-    --card: 222 22% 10%;
-    --card-foreground: 210 20% 90%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
 
-    --popover: 222 22% 10%;
-    --popover-foreground: 210 20% 90%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 175 60% 45%;
-    --primary-foreground: 222 25% 6%;
+    --primary: 0 0% 20%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 222 20% 15%;
-    --secondary-foreground: 210 20% 90%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 20%;
 
-    --muted: 222 15% 18%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 15 70% 55%;
-    --accent-foreground: 222 25% 6%;
+    --accent: 24 10% 50%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 65% 50%;
-    --destructive-foreground: 210 20% 90%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 222 15% 18%;
-    --input: 222 15% 18%;
-    --ring: 175 60% 45%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 20%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(175 60% 45%), hsl(190 55% 50%));
-    --gradient-accent: linear-gradient(135deg, hsl(15 70% 55%), hsl(25 65% 55%));
-    --gradient-card: linear-gradient(180deg, hsl(222 22% 12%), hsl(222 22% 8%));
-    --shadow-glow: 0 0 40px hsl(175 60% 45% / 0.12);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.4);
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 20%), hsl(0 0% 35%));
+    --gradient-accent: linear-gradient(135deg, hsl(24 10% 50%), hsl(24 15% 55%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --shadow-glow: 0 0 30px hsl(0 0% 20% / 0.08);
+    --shadow-card: 0 2px 12px hsl(0 0% 0% / 0.06);
 
-    --sidebar-background: 222 22% 8%;
-    --sidebar-foreground: 210 20% 90%;
-    --sidebar-primary: 175 60% 45%;
-    --sidebar-primary-foreground: 222 25% 6%;
-    --sidebar-accent: 222 20% 15%;
-    --sidebar-accent-foreground: 210 20% 90%;
-    --sidebar-border: 222 15% 18%;
-    --sidebar-ring: 175 60% 45%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 0 0% 20%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 20%;
+    --sidebar-border: 0 0% 88%;
+    --sidebar-ring: 0 0% 20%;
   }
 
   .dark {
-    --background: 222 25% 6%;
-    --foreground: 210 20% 90%;
-    --card: 222 22% 10%;
-    --card-foreground: 210 20% 90%;
-    --popover: 222 22% 10%;
-    --popover-foreground: 210 20% 90%;
-    --primary: 175 60% 45%;
-    --primary-foreground: 222 25% 6%;
-    --secondary: 222 20% 15%;
-    --secondary-foreground: 210 20% 90%;
-    --muted: 222 15% 18%;
-    --muted-foreground: 215 15% 55%;
-    --accent: 15 70% 55%;
-    --accent-foreground: 222 25% 6%;
-    --destructive: 0 65% 50%;
-    --destructive-foreground: 210 20% 90%;
-    --border: 222 15% 18%;
-    --input: 222 15% 18%;
-    --ring: 175 60% 45%;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 92%;
+    
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 92%;
+    
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 92%;
+    
+    --primary: 0 0% 85%;
+    --primary-foreground: 0 0% 8%;
+    
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 92%;
+    
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 55%;
+    
+    --accent: 24 10% 55%;
+    --accent-foreground: 0 0% 8%;
+    
+    --destructive: 0 55% 50%;
+    --destructive-foreground: 0 0% 92%;
+    
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 85%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 85%), hsl(0 0% 70%));
+    --shadow-glow: 0 0 30px hsl(0 0% 100% / 0.05);
+    --shadow-card: 0 2px 12px hsl(0 0% 0% / 0.3);
+
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 0 0% 85%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 0% 85%;
   }
 }
 
@@ -117,7 +138,7 @@
   }
 
   .card-glass {
-    @apply bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl;
+    @apply bg-card border border-border rounded-xl;
     box-shadow: var(--shadow-card);
   }
 
@@ -139,25 +160,24 @@
   }
 
   .skill-tag {
-    @apply px-4 py-2 rounded-full text-sm font-medium bg-secondary text-foreground border border-border/50 hover:border-primary hover:text-primary transition-all duration-300;
+    @apply px-4 py-2 rounded-full text-sm font-medium bg-secondary text-foreground border border-border hover:border-primary hover:text-primary transition-all duration-300;
   }
 
   .timeline-dot {
     @apply w-4 h-4 rounded-full bg-primary border-4 border-background;
-    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.2);
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.15);
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium text-primary-foreground transition-all duration-300 hover:scale-105;
-    background: var(--gradient-primary);
-    box-shadow: 0 4px 15px hsl(var(--primary) / 0.3);
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium bg-primary text-primary-foreground transition-all duration-300 hover:opacity-90;
+    box-shadow: 0 2px 8px hsl(var(--primary) / 0.2);
   }
 
   .btn-primary:hover {
-    box-shadow: 0 6px 25px hsl(var(--primary) / 0.4);
+    box-shadow: 0 4px 16px hsl(var(--primary) / 0.25);
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300;
   }
 }

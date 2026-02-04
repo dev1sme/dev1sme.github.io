@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { Heart, Github, Linkedin, Mail } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -45,19 +47,19 @@ const Footer = () => {
 
           {/* Built with */}
           <p className="text-sm text-muted-foreground mb-4">
-            Built with{' '}
+            {t('Được xây dựng với', 'Built with')}{' '}
             <Heart className="inline-block w-4 h-4 text-accent mx-1" fill="currentColor" />
-            using React & Tailwind CSS
+            {t('sử dụng React & Tailwind CSS', 'using React & Tailwind CSS')}
           </p>
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Lê Tuấn Thông. All rights reserved.
+            © {currentYear} Lê Tuấn Thông. {t('Bảo lưu mọi quyền.', 'All rights reserved.')}
           </p>
 
           {/* Designed by */}
           <p className="text-xs text-muted-foreground/60 mt-4 font-mono">
-            Designed & Developed by{' '}
+            {t('Thiết kế & Phát triển bởi', 'Designed & Developed by')}{' '}
             <a
               href="#home"
               className="text-primary hover:underline"

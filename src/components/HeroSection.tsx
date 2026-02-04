@@ -1,7 +1,11 @@
 import { motion, Variants } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Download, ArrowDown } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -29,8 +33,8 @@ const HeroSection = () => {
     >
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -40,20 +44,30 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
         >
+          {/* Avatar */}
+          <motion.div variants={itemVariants} className="mb-8">
+            <Avatar className="w-32 h-32 mx-auto border-4 border-primary/20 shadow-lg">
+              <AvatarImage src="/placeholder.svg" alt="Lê Tuấn Thông" />
+              <AvatarFallback className="text-3xl font-heading font-bold bg-primary text-primary-foreground">
+                LTT
+              </AvatarFallback>
+            </Avatar>
+          </motion.div>
+
           {/* Greeting */}
           <motion.p
             className="text-primary font-mono text-lg mb-4"
             variants={itemVariants}
           >
-            Xin chào, tôi là
+            {t('Xin chào, tôi là', 'Hello, I am')}
           </motion.p>
 
           {/* Name */}
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4"
+            className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 text-foreground"
             variants={itemVariants}
           >
-            <span className="gradient-text">Lê Tuấn Thông</span>
+            Lê Tuấn Thông
           </motion.h1>
 
           {/* Title */}
@@ -69,8 +83,10 @@ const HeroSection = () => {
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
             variants={itemVariants}
           >
-            Lập trình viên với hơn <span className="text-primary font-semibold">2 năm kinh nghiệm</span> phát triển web. 
-            Đam mê xây dựng các hệ thống backend mạnh mẽ, tối ưu và có khả năng mở rộng cao.
+            {t(
+              <>Lập trình viên với hơn <span className="text-primary font-semibold">2 năm kinh nghiệm</span> phát triển web. Đam mê xây dựng các hệ thống backend mạnh mẽ, tối ưu và có khả năng mở rộng cao.</>,
+              <>Developer with over <span className="text-primary font-semibold">2 years of experience</span> in web development. Passionate about building robust, optimized and highly scalable backend systems.</>
+            )}
           </motion.p>
 
           {/* Contact Info */}
@@ -94,7 +110,7 @@ const HeroSection = () => {
             </a>
             <span className="flex items-center gap-2 text-muted-foreground">
               <MapPin size={18} />
-              <span>TP. Hồ Chí Minh</span>
+              <span>{t('TP. Hồ Chí Minh', 'Ho Chi Minh City')}</span>
             </span>
           </motion.div>
 
@@ -105,11 +121,11 @@ const HeroSection = () => {
           >
             <a href="#contact" className="btn-primary">
               <Mail size={20} />
-              Liên hệ ngay
+              {t('Liên hệ ngay', 'Contact me')}
             </a>
             <a href="#" className="btn-outline">
               <Download size={20} />
-              Tải CV
+              {t('Tải CV', 'Download CV')}
             </a>
           </motion.div>
 
@@ -139,20 +155,25 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator - centered properly */}
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute bottom-10 left-0 right-0 flex justify-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.5 }}
         >
-          <motion.div
+          <motion.a
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-muted-foreground"
+            className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
           >
             <ArrowDown size={24} />
-          </motion.div>
+          </motion.a>
         </motion.div>
       </div>
     </section>
