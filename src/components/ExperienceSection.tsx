@@ -2,45 +2,47 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Briefcase, Calendar, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
-
-const experienceData = [
-  {
-    title: 'Backend Engineer',
-    company: 'Công ty cổ phần Én Việt',
-    period: '04/2024 - Hiện tại',
-    location: 'TP. Hồ Chí Minh',
-    current: true,
-    responsibilities: [
-      'Quản lý dự án phát triển web và mobile',
-      'Phát triển backend với Java và Spring Boot',
-      'Thiết kế và tối ưu hóa API/web service',
-      'Làm việc với cơ sở dữ liệu MySQL và PostgreSQL',
-      'Triển khai Docker container và CI/CD pipelines',
-      'Code review và mentoring cho team members',
-    ],
-    techStack: ['Java', 'Spring Boot', 'MySQL', 'PostgreSQL', 'Docker', 'Redis'],
-  },
-  {
-    title: 'Backend Engineer',
-    company: 'AhaMove',
-    period: '10/2023 - 03/2024',
-    location: 'TP. Hồ Chí Minh',
-    current: false,
-    responsibilities: [
-      'Phát triển các tính năng backend cho nền tảng giao hàng',
-      'Tối ưu hóa performance của API services',
-      'Xử lý dữ liệu lớn và real-time processing',
-      'Làm việc trong môi trường Agile/Scrum',
-      'Viết unit tests và integration tests',
-    ],
-    techStack: ['Java', 'Spring Boot', 'MongoDB', 'Kafka', 'AWS', 'Microservices'],
-  },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ExperienceSection = () => {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+
+  const experienceData = [
+    {
+      title: 'Backend Engineer',
+      company: t('Công ty cổ phần Én Việt', 'En Viet Joint Stock Company'),
+      period: t('04/2024 - Hiện tại', '04/2024 - Present'),
+      location: t('TP. Hồ Chí Minh', 'Ho Chi Minh City'),
+      current: true,
+      responsibilities: [
+        t('Quản lý dự án phát triển web và mobile', 'Managing web and mobile development projects'),
+        t('Phát triển backend với Java và Spring Boot', 'Developing backend with Java and Spring Boot'),
+        t('Thiết kế và tối ưu hóa API/web service', 'Designing and optimizing API/web services'),
+        t('Làm việc với cơ sở dữ liệu MySQL và PostgreSQL', 'Working with MySQL and PostgreSQL databases'),
+        t('Triển khai Docker container và CI/CD pipelines', 'Deploying Docker containers and CI/CD pipelines'),
+        t('Code review và mentoring cho team members', 'Code review and mentoring team members'),
+      ],
+      techStack: ['Java', 'Spring Boot', 'MySQL', 'PostgreSQL', 'Docker', 'Redis'],
+    },
+    {
+      title: 'Backend Engineer',
+      company: 'AhaMove',
+      period: '10/2023 - 03/2024',
+      location: t('TP. Hồ Chí Minh', 'Ho Chi Minh City'),
+      current: false,
+      responsibilities: [
+        t('Phát triển các tính năng backend cho nền tảng giao hàng', 'Developing backend features for delivery platform'),
+        t('Tối ưu hóa performance của API services', 'Optimizing API services performance'),
+        t('Xử lý dữ liệu lớn và real-time processing', 'Processing big data and real-time processing'),
+        t('Làm việc trong môi trường Agile/Scrum', 'Working in Agile/Scrum environment'),
+        t('Viết unit tests và integration tests', 'Writing unit tests and integration tests'),
+      ],
+      techStack: ['Java', 'Spring Boot', 'MongoDB', 'Kafka', 'AWS', 'Microservices'],
+    },
+  ];
 
   return (
     <section id="experience" className="py-24" ref={ref}>
@@ -53,9 +55,9 @@ const ExperienceSection = () => {
         >
           <h2 className="section-heading">
             <span className="text-primary font-mono text-lg font-normal">03.</span>{' '}
-            Kinh nghiệm
+            {t('Kinh nghiệm', 'Experience')}
           </h2>
-          <p className="section-subheading">Hành trình nghề nghiệp của tôi</p>
+          <p className="section-subheading">{t('Hành trình nghề nghiệp của tôi', 'My professional journey')}</p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto space-y-6">
@@ -84,7 +86,7 @@ const ExperienceSection = () => {
                         </h3>
                         {exp.current && (
                           <span className="px-2 py-0.5 text-xs rounded-full bg-primary/20 text-primary font-medium">
-                            Hiện tại
+                            {t('Hiện tại', 'Current')}
                           </span>
                         )}
                       </div>
@@ -126,7 +128,7 @@ const ExperienceSection = () => {
                   {/* Responsibilities */}
                   <div className="pt-6">
                     <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
-                      Trách nhiệm chính
+                      {t('Trách nhiệm chính', 'Key Responsibilities')}
                     </h4>
                     <ul className="space-y-3">
                       {exp.responsibilities.map((resp, respIndex) => (
@@ -144,7 +146,7 @@ const ExperienceSection = () => {
                   {/* Tech Stack */}
                   <div className="mt-6">
                     <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
-                      Công nghệ sử dụng
+                      {t('Công nghệ sử dụng', 'Technologies Used')}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {exp.techStack.map((tech) => (

@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Facebook } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ContactSection = () => {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [formData, setFormData] = useState({
@@ -18,7 +20,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    alert('Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi sớm nhất có thể.');
+    alert(t('Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi sớm nhất có thể.', 'Thank you for contacting! I will respond as soon as possible.'));
     setFormData({ name: '', email: '', message: '' });
     setIsSubmitting(false);
   };
@@ -32,14 +34,14 @@ const ContactSection = () => {
     },
     {
       icon: Phone,
-      label: 'Điện thoại',
+      label: t('Điện thoại', 'Phone'),
       value: '0938 179 726',
       href: 'tel:0938179726',
     },
     {
       icon: MapPin,
-      label: 'Địa chỉ',
-      value: 'Nhà Bè, TP. Hồ Chí Minh',
+      label: t('Địa chỉ', 'Address'),
+      value: t('Nhà Bè, TP. Hồ Chí Minh', 'Nha Be, Ho Chi Minh City'),
       href: null,
     },
   ];
@@ -61,9 +63,9 @@ const ContactSection = () => {
         >
           <h2 className="section-heading">
             <span className="text-primary font-mono text-lg font-normal">06.</span>{' '}
-            Liên hệ
+            {t('Liên hệ', 'Contact')}
           </h2>
-          <p className="section-subheading">Hãy kết nối với tôi</p>
+          <p className="section-subheading">{t('Hãy kết nối với tôi', 'Let\'s connect')}</p>
         </motion.div>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
@@ -76,11 +78,13 @@ const ContactSection = () => {
           >
             <div>
               <h3 className="text-2xl font-heading font-semibold text-foreground mb-4">
-                Hãy liên hệ với tôi
+                {t('Hãy liên hệ với tôi', 'Get in touch')}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Tôi luôn sẵn sàng lắng nghe về các cơ hội mới, dự án thú vị hoặc đơn giản là một cuộc trò chuyện. 
-                Đừng ngần ngại liên hệ với tôi qua bất kỳ kênh nào bên dưới.
+                {t(
+                  'Tôi luôn sẵn sàng lắng nghe về các cơ hội mới, dự án thú vị hoặc đơn giản là một cuộc trò chuyện. Đừng ngần ngại liên hệ với tôi qua bất kỳ kênh nào bên dưới.',
+                  'I am always ready to hear about new opportunities, interesting projects or simply a conversation. Don\'t hesitate to contact me through any channel below.'
+                )}
               </p>
             </div>
 
@@ -132,7 +136,7 @@ const ContactSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.6 }}
             >
-              <p className="text-sm text-muted-foreground mb-4">Theo dõi tôi tại:</p>
+              <p className="text-sm text-muted-foreground mb-4">{t('Theo dõi tôi tại:', 'Follow me at:')}</p>
               <div className="flex gap-4">
                 {socialLinks.map((social) => (
                   <a
@@ -158,7 +162,7 @@ const ContactSection = () => {
           >
             <form onSubmit={handleSubmit} className="card-glass p-8">
               <h3 className="text-xl font-heading font-semibold text-foreground mb-6">
-                Gửi tin nhắn
+                {t('Gửi tin nhắn', 'Send a message')}
               </h3>
 
               <div className="space-y-5">
@@ -167,7 +171,7 @@ const ContactSection = () => {
                     htmlFor="name"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    Họ và tên
+                    {t('Họ và tên', 'Full Name')}
                   </label>
                   <input
                     type="text"
@@ -178,7 +182,7 @@ const ContactSection = () => {
                     }
                     required
                     className="w-full px-4 py-3 rounded-lg bg-muted/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-foreground placeholder:text-muted-foreground"
-                    placeholder="Nhập họ và tên"
+                    placeholder={t('Nhập họ và tên', 'Enter your name')}
                   />
                 </div>
 
@@ -207,7 +211,7 @@ const ContactSection = () => {
                     htmlFor="message"
                     className="block text-sm font-medium text-foreground mb-2"
                   >
-                    Tin nhắn
+                    {t('Tin nhắn', 'Message')}
                   </label>
                   <textarea
                     id="message"
@@ -218,7 +222,7 @@ const ContactSection = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-3 rounded-lg bg-muted/50 border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-foreground placeholder:text-muted-foreground resize-none"
-                    placeholder="Nội dung tin nhắn..."
+                    placeholder={t('Nội dung tin nhắn...', 'Your message...')}
                   />
                 </div>
 
@@ -228,11 +232,11 @@ const ContactSection = () => {
                   className="w-full btn-primary justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
-                    'Đang gửi...'
+                    t('Đang gửi...', 'Sending...')
                   ) : (
                     <>
                       <Send size={18} />
-                      Gửi tin nhắn
+                      {t('Gửi tin nhắn', 'Send Message')}
                     </>
                   )}
                 </button>

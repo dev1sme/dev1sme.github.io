@@ -2,67 +2,81 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink, Github, Folder } from 'lucide-react';
-
-const projectsData = [
-  {
-    title: 'E-Commerce Platform',
-    description:
-      'Hệ thống thương mại điện tử hoàn chỉnh với quản lý sản phẩm, giỏ hàng, thanh toán và theo dõi đơn hàng. Tích hợp các cổng thanh toán phổ biến.',
-    technologies: ['Java', 'Spring Boot', 'MySQL', 'Redis', 'Docker'],
-    github: 'https://github.com',
-    demo: null,
-    featured: true,
-  },
-  {
-    title: 'Delivery Management System',
-    description:
-      'Hệ thống quản lý giao hàng với tính năng theo dõi real-time, tối ưu hóa lộ trình và quản lý đội ngũ shipper.',
-    technologies: ['Java', 'Spring Boot', 'MongoDB', 'Kafka', 'AWS'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    featured: true,
-  },
-  {
-    title: 'HR Management System',
-    description:
-      'Ứng dụng quản lý nhân sự với chức năng chấm công, quản lý lương, đánh giá hiệu suất và báo cáo.',
-    technologies: ['Java', 'Hibernate', 'PostgreSQL', 'Angular'],
-    github: 'https://github.com',
-    demo: null,
-    featured: false,
-  },
-  {
-    title: 'Chat Application',
-    description:
-      'Ứng dụng chat real-time với tính năng nhắn tin cá nhân, group chat và chia sẻ file.',
-    technologies: ['Spring Boot', 'WebSocket', 'Redis', 'React'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    featured: false,
-  },
-  {
-    title: 'Task Management API',
-    description:
-      'RESTful API cho ứng dụng quản lý công việc với authentication, authorization và real-time notifications.',
-    technologies: ['Java', 'Spring Security', 'JWT', 'MySQL'],
-    github: 'https://github.com',
-    demo: null,
-    featured: false,
-  },
-  {
-    title: 'Machine Learning Project',
-    description:
-      'Dự án nghiên cứu về ứng dụng Machine Learning trong dự đoán và phân tích dữ liệu.',
-    technologies: ['Python', 'TensorFlow', 'Pandas', 'Flask'],
-    github: 'https://github.com',
-    demo: null,
-    featured: false,
-  },
-];
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ProjectsSection = () => {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const projectsData = [
+    {
+      title: 'E-Commerce Platform',
+      description: t(
+        'Hệ thống thương mại điện tử hoàn chỉnh với quản lý sản phẩm, giỏ hàng, thanh toán và theo dõi đơn hàng. Tích hợp các cổng thanh toán phổ biến.',
+        'Complete e-commerce system with product management, shopping cart, payment and order tracking. Integration with popular payment gateways.'
+      ),
+      technologies: ['Java', 'Spring Boot', 'MySQL', 'Redis', 'Docker'],
+      github: 'https://github.com',
+      demo: null,
+      featured: true,
+    },
+    {
+      title: 'Delivery Management System',
+      description: t(
+        'Hệ thống quản lý giao hàng với tính năng theo dõi real-time, tối ưu hóa lộ trình và quản lý đội ngũ shipper.',
+        'Delivery management system with real-time tracking, route optimization and shipper team management.'
+      ),
+      technologies: ['Java', 'Spring Boot', 'MongoDB', 'Kafka', 'AWS'],
+      github: 'https://github.com',
+      demo: 'https://demo.com',
+      featured: true,
+    },
+    {
+      title: 'HR Management System',
+      description: t(
+        'Ứng dụng quản lý nhân sự với chức năng chấm công, quản lý lương, đánh giá hiệu suất và báo cáo.',
+        'HR management application with attendance, payroll management, performance evaluation and reporting.'
+      ),
+      technologies: ['Java', 'Hibernate', 'PostgreSQL', 'Angular'],
+      github: 'https://github.com',
+      demo: null,
+      featured: false,
+    },
+    {
+      title: 'Chat Application',
+      description: t(
+        'Ứng dụng chat real-time với tính năng nhắn tin cá nhân, group chat và chia sẻ file.',
+        'Real-time chat application with personal messaging, group chat and file sharing features.'
+      ),
+      technologies: ['Spring Boot', 'WebSocket', 'Redis', 'React'],
+      github: 'https://github.com',
+      demo: 'https://demo.com',
+      featured: false,
+    },
+    {
+      title: 'Task Management API',
+      description: t(
+        'RESTful API cho ứng dụng quản lý công việc với authentication, authorization và real-time notifications.',
+        'RESTful API for task management application with authentication, authorization and real-time notifications.'
+      ),
+      technologies: ['Java', 'Spring Security', 'JWT', 'MySQL'],
+      github: 'https://github.com',
+      demo: null,
+      featured: false,
+    },
+    {
+      title: 'Machine Learning Project',
+      description: t(
+        'Dự án nghiên cứu về ứng dụng Machine Learning trong dự đoán và phân tích dữ liệu.',
+        'Research project on Machine Learning applications in prediction and data analysis.'
+      ),
+      technologies: ['Python', 'TensorFlow', 'Pandas', 'Flask'],
+      github: 'https://github.com',
+      demo: null,
+      featured: false,
+    },
+  ];
 
   const featuredProjects = projectsData.filter((p) => p.featured);
   const otherProjects = projectsData.filter((p) => !p.featured);
@@ -78,9 +92,9 @@ const ProjectsSection = () => {
         >
           <h2 className="section-heading">
             <span className="text-primary font-mono text-lg font-normal">05.</span>{' '}
-            Dự án
+            {t('Dự án', 'Projects')}
           </h2>
-          <p className="section-subheading">Một số dự án tôi đã thực hiện</p>
+          <p className="section-subheading">{t('Một số dự án tôi đã thực hiện', 'Some projects I have worked on')}</p>
         </motion.div>
 
         {/* Featured Projects */}
@@ -98,19 +112,19 @@ const ProjectsSection = () => {
               {/* Project Image/Placeholder */}
               <div className="lg:w-1/2">
                 <div className="relative group">
-                  <div className="aspect-video rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center overflow-hidden border border-border/50">
+                  <div className="aspect-video rounded-xl bg-muted/50 flex items-center justify-center overflow-hidden border border-border">
                     <div className="text-center p-8">
                       <Folder className="w-16 h-16 text-primary/50 mx-auto mb-4" />
-                      <p className="text-muted-foreground text-sm">Project Preview</p>
+                      <p className="text-muted-foreground text-sm">{t('Xem trước dự án', 'Project Preview')}</p>
                     </div>
-                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </div>
               </div>
 
               {/* Project Details */}
               <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-8' : 'lg:pr-8'}`}>
-                <p className="text-primary font-mono text-sm mb-2">Featured Project</p>
+                <p className="text-primary font-mono text-sm mb-2">{t('Dự án nổi bật', 'Featured Project')}</p>
                 <h3 className="text-2xl font-heading font-bold text-foreground mb-4">
                   {project.title}
                 </h3>
@@ -164,7 +178,7 @@ const ProjectsSection = () => {
           className="text-center mb-8"
         >
           <h3 className="text-xl font-heading font-semibold text-foreground">
-            Các dự án khác
+            {t('Các dự án khác', 'Other Projects')}
           </h3>
         </motion.div>
 
