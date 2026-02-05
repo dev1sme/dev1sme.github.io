@@ -132,73 +132,70 @@ const HeroSection = () => {
 
           {/* Social Links */}
           <motion.div
-            className="flex justify-center gap-4 flex-wrap"
+            className="flex justify-center gap-3 sm:gap-4"
             variants={itemVariants}
           >
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
               aria-label="GitHub"
             >
-              <Github size={24} />
+              <Github className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
               aria-label="LinkedIn"
             >
-              <Linkedin size={24} />
+              <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
               aria-label="Instagram"
             >
-              <Instagram size={24} />
+              <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
               aria-label="Facebook"
             >
-              <Facebook size={24} />
+              <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
+              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
               aria-label="X (Twitter)"
             >
-              <Twitter size={24} />
+              <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
           </motion.div>
-        </motion.div>
 
-        {/* Scroll indicator - centered properly */}
-        <motion.div
-          className="absolute bottom-10 left-0 right-0 flex justify-center"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-        >
+          {/* Scroll indicator - below social links */}
           <motion.a
             href="#about"
             onClick={(e) => {
               e.preventDefault();
               document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
             }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+            transition={{ 
+              y: { duration: 2, repeat: Infinity },
+              opacity: { delay: 1.5, duration: 0.5 }
+            }}
+            className="mt-12 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
           >
             <ArrowDown size={24} />
           </motion.a>
