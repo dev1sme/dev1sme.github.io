@@ -12,6 +12,7 @@ const ExperienceSection = () => {
 
   const experienceData = [
     {
+      key: 1,
       title: 'Software Engineer',
       company: 'CYBiDGE CORPORATION',
       period: t('12/2025 - Hiện tại', '12/2025 - Present'),
@@ -27,6 +28,7 @@ const ExperienceSection = () => {
       techStack: ['Java', 'Spring Boot', 'React', 'TypeScript', 'AWS', 'Docker', 'Kubernetes'],
     },
     {
+      key: 2,
       title: 'Software Engineer',
       company: t('Công ty cổ phần Én Việt', 'En Viet Joint Stock Company'),
       period: '01/2025 - 11/2025',
@@ -42,6 +44,7 @@ const ExperienceSection = () => {
       techStack: ['Java', 'Spring Boot', 'MySQL', 'PostgreSQL', 'Docker', 'Redis'],
     },
     {
+      key: 3,
       title: 'Full-time International Student - Information Technology',
       company: t('Chương trình trao đổi sinh viên', 'International student exchange programs'),
       period: '06/2024 - 12/2024',
@@ -56,6 +59,7 @@ const ExperienceSection = () => {
       //techStack: ['Java', 'Spring Boot', 'MySQL', 'PostgreSQL', 'Docker'],
     },
     {
+      key: 4,
       title: 'Software Engineer',
       company: t('Công ty cổ phần Én Việt', 'En Viet Joint Stock Company'),
       period: '04/2024 - 06/2024',
@@ -70,6 +74,7 @@ const ExperienceSection = () => {
       techStack: ['Java', 'Spring Boot', 'MySQL', 'PostgreSQL', 'Docker'],
     },
     {
+      key: 5,
       title: 'Software Engineer',
       company: 'AhaMove',
       period: '10/2023 - 03/2024',
@@ -105,7 +110,7 @@ const ExperienceSection = () => {
         <div className="max-w-4xl mx-auto space-y-6">
           {experienceData.map((exp, index) => (
             <motion.div
-              key={exp.company}
+              key={exp.key}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
