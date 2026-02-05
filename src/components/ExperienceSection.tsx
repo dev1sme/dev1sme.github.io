@@ -42,6 +42,20 @@ const ExperienceSection = () => {
       techStack: ['Java', 'Spring Boot', 'MySQL', 'PostgreSQL', 'Docker', 'Redis'],
     },
     {
+      title: 'Full-time International Student - Information Technology',
+      company: t('Chương trình trao đổi sinh viên', 'International student exchange programs'),
+      period: '06/2024 - 12/2024',
+      location: t('Trung Quốc - Hàn Quốc', 'China - Korea'),
+      current: false,
+      // responsibilities: [
+      //   t('Quản lý dự án phát triển web và mobile', 'Managing web and mobile development projects'),
+      //   t('Phát triển backend với Java và Spring Boot', 'Developing backend with Java and Spring Boot'),
+      //   t('Thiết kế và tối ưu hóa API/web service', 'Designing and optimizing API/web services'),
+      //   t('Làm việc với cơ sở dữ liệu MySQL và PostgreSQL', 'Working with MySQL and PostgreSQL databases'),
+      // ],
+      //techStack: ['Java', 'Spring Boot', 'MySQL', 'PostgreSQL', 'Docker'],
+    },
+    {
       title: 'Software Engineer',
       company: t('Công ty cổ phần Én Việt', 'En Viet Joint Stock Company'),
       period: '04/2024 - 06/2024',
