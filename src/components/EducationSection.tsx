@@ -11,17 +11,30 @@ const EducationSection = () => {
 
   const educationData = [
     {
-      period: '2019 - 2023',
-      school: t('Đại học Tôn Đức Thắng', 'Ton Duc Thang University'),
-      location: t('TP. Hồ Chí Minh, Việt Nam', 'Ho Chi Minh City, Vietnam'),
-      degree: t('Cử nhân Công nghệ thông tin', 'Bachelor of Information Technology'),
-      major: t('Chuyên ngành: Mạng máy tính', 'Major: Computer Networks'),
-      gpa: '7.60/10',
+      period: t('01/2025 - Hiện tại', '01/2025 - Present'),
+      school: t('Tự học & Luyện tập Online', 'Self-study & Online Practice'),
+      location: 'Online',
+      degree: t('Học tập liên tục', 'Continuous Learning'),
+      major: t('Cập nhật kiến thức mới mỗi ngày', 'Updating new knowledge every day'),
+      gpa: '',
       description: t(
-        'Hoàn thành chương trình đại học với kiến thức vững chắc về lập trình, cơ sở dữ liệu và mạng máy tính.',
-        'Completed university program with solid knowledge in programming, databases and computer networks.'
+        'Không ngừng học hỏi và rèn luyện kỹ năng thông qua các nền tảng như Udemy, Coursera, LeetCode, và các dự án cá nhân.',
+        'Continuously learning and practicing skills through platforms like Udemy, Coursera, LeetCode, and personal projects.'
       ),
-      flag: '🇻🇳',
+      flag: '🌐',
+    },
+    {
+      period: '09/2024 - 12/2024',
+      school: t('Đại học Công Nghệ Jeonju', 'Jeonju University'),
+      location: t('Hàn Quốc', 'South Korea'),
+      degree: t('Chương trình trao đổi', 'Exchange Program'),
+      major: 'Cloud & AI',
+      gpa: '3.5/4.0',
+      description: t(
+        'Nghiên cứu về điện toán đám mây và ứng dụng AI trong thực tiễn.',
+        'Researched cloud computing and practical AI applications.'
+      ),
+      flag: '🇰🇷',
     },
     {
       period: '06/2024 - 09/2024',
@@ -37,17 +50,17 @@ const EducationSection = () => {
       flag: '🇨🇳',
     },
     {
-      period: '09/2024 - 12/2024',
-      school: t('Đại học Công Nghệ Jeonju', 'Jeonju University'),
-      location: t('Hàn Quốc', 'South Korea'),
-      degree: t('Chương trình trao đổi', 'Exchange Program'),
-      major: 'Cloud & AI',
-      gpa: '3.5/4.0',
+      period: '2019 - 2023',
+      school: t('Đại học Tôn Đức Thắng', 'Ton Duc Thang University'),
+      location: t('TP. Hồ Chí Minh, Việt Nam', 'Ho Chi Minh City, Vietnam'),
+      degree: t('Cử nhân Công nghệ thông tin', 'Bachelor of Information Technology'),
+      major: t('Chuyên ngành: Mạng máy tính', 'Major: Computer Networks'),
+      gpa: '7.60/10',
       description: t(
-        'Nghiên cứu về điện toán đám mây và ứng dụng AI trong thực tiễn.',
-        'Researched cloud computing and practical AI applications.'
+        'Hoàn thành chương trình đại học với kiến thức vững chắc về lập trình, cơ sở dữ liệu và mạng máy tính.',
+        'Completed university program with solid knowledge in programming, databases and computer networks.'
       ),
-      flag: '🇰🇷',
+      flag: '🇻🇳',
     },
   ];
 
@@ -115,10 +128,12 @@ const EducationSection = () => {
                   </div>
 
                   {/* GPA */}
-                  <div className={`flex items-center gap-2 mb-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
-                    <Award size={16} className="text-accent" />
-                    <span className="text-accent font-semibold">GPA: {edu.gpa}</span>
-                  </div>
+                  {edu.gpa && (
+                    <div className={`flex items-center gap-2 mb-4 ${index % 2 === 0 ? 'md:justify-end' : ''}`}>
+                      <Award size={16} className="text-accent" />
+                      <span className="text-accent font-semibold">GPA: {edu.gpa}</span>
+                    </div>
+                  )}
 
                   {/* Description */}
                   <p className="text-sm text-muted-foreground leading-relaxed">
