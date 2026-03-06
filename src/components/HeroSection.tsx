@@ -96,11 +96,11 @@ const HeroSection = () => {
             variants={itemVariants}
           >
             <a
-              href="mailto:letuanthong350@gmail.com"
+              href="mailto:contact@dev1sme.cloud"
               className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
             >
               <Mail size={18} />
-              <span>letuanthong350@gmail.com</span>
+              <span>contact@dev1sme.cloud</span>
             </a>
             <a
               href="tel:0938179726"

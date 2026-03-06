@@ -12,7 +12,7 @@ const AboutSection = () => {
   const personalInfo = [
     { icon: Calendar, label: t('Ngày sinh', 'Date of Birth'), value: '01/01/2001' },
     { icon: MapPin, label: t('Địa chỉ', 'Address'), value: t('Nhà Bè, TP. Hồ Chí Minh', 'Nha Be, Ho Chi Minh City') },
-    { icon: Mail, label: 'Email', value: 'letuanthong350@gmail.com' },
+    { icon: Mail, label: 'Email', value: 'contact@dev1sme.cloud' },
     { icon: Phone, label: t('Điện thoại', 'Phone'), value: '0938 179 726' },
   ];
 
