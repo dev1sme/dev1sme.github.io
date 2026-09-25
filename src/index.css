@@ -63,6 +63,21 @@
 
     /* Height of the fixed bottom bar, reserved at the end of the page */
     --dock-height: 3.5rem;
+
+    /* Fixed header: brand row + nav row, collapsing to one row on xl */
+    --header-h: 6rem;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --header-h: 6.75rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    :root {
+      --header-h: 4.75rem;
+    }
   }
 }
 
@@ -85,13 +100,7 @@
   }
 
   section[id] {
-    scroll-margin-top: 3.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    section[id] {
-      scroll-margin-top: 6rem;
-    }
+    scroll-margin-top: var(--header-h);
   }
 
   ::selection {
@@ -146,7 +155,217 @@
     @apply inline-flex items-center gap-1.5 font-display text-base font-bold uppercase tracking-[0.08em] border-b-2 border-current pb-0.5 transition-opacity hover:opacity-60;
   }
 
-  .btn-solid {
-    @apply inline-flex items-center gap-3 px-7 py-4 font-display text-lg font-bold uppercase tracking-[0.06em] bg-ghost text-ink transition-colors hover:bg-paper-light;
+  /* ---------------------------------------------------------------
+     Hero. Mobile first: portrait is a banner under the header and the
+     copy follows on black. From sm up the portrait moves behind the
+     copy on the right and fades into the ground.
+     --------------------------------------------------------------- */
+  .hero {
+    @apply relative isolate overflow-hidden bg-black text-paper-light;
+    padding-top: var(--header-h);
+  }
+
+  .hero-photo {
+    @apply relative overflow-hidden;
+    height: min(80vw, 22rem);
+    border-bottom: 1px solid hsl(0 0% 21%);
+  }
+
+  .hero-photo img {
+    @apply h-full w-full object-cover;
+    object-position: 50% 22%;
+    filter: grayscale(1) contrast(1.12) brightness(0.92);
+  }
+
+  /* Spotlight: the portrait is shot on a light backdrop, so darken
+     everything around the subject rather than the subject itself */
+  .hero-photo::after {
+    content: '';
+    @apply absolute inset-0;
+    background:
+      radial-gradient(ellipse 75% 95% at 50% 30%, transparent 38%, hsl(var(--black) / 0.88) 100%),
+      linear-gradient(transparent 55%, hsl(var(--black)));
+  }
+
+  .hero-inner {
+    padding-top: 2.25rem;
+    padding-bottom: calc(var(--dock-height) + 3rem);
+  }
+
+  .hero-eyebrow {
+    @apply flex items-center gap-3 font-sans font-bold uppercase text-paper-light/75;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+  }
+
+  .hero-title {
+    @apply font-display font-extrabold;
+    font-size: clamp(3.25rem, 15vw, 4.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .hero-statement {
+    @apply border-l-4 border-paper-light font-bold;
+    padding-left: 1.2rem;
+    max-width: 42.5rem;
+    font-size: 1.125rem;
+    line-height: 1.45;
+  }
+
+  .hero-description {
+    @apply text-paper-light/75;
+    max-width: 41rem;
+    margin-top: 1.1rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    @apply flex flex-col gap-3;
+    margin-top: 1.75rem;
+  }
+
+  .hero-button {
+    @apply inline-flex items-center justify-center gap-3 border border-[#f1f1f1] bg-[#f1f1f1] px-5 font-sans text-sm font-extrabold text-[#101010] transition-colors;
+    min-height: 3.5rem;
+  }
+
+  .hero-button:hover {
+    @apply bg-transparent text-paper-light;
+  }
+
+  .hero-count {
+    @apply flex items-center justify-center gap-3 border border-[#6d6d6d] bg-black/55 px-4;
+    min-height: 3.5rem;
+  }
+
+  .hero-count strong {
+    @apply font-display font-extrabold;
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+
+  .hero-count span {
+    @apply font-sans font-bold uppercase text-paper-light/80;
+    font-size: 0.6875rem;
+    letter-spacing: 0.07em;
+    line-height: 1.25;
+  }
+
+  .hero-contact {
+    @apply flex flex-wrap gap-x-3 gap-y-1 text-paper-light/55;
+    margin-top: 1.4rem;
+    font-size: 0.8125rem;
+  }
+
+  .hero-contact a {
+    @apply transition-colors hover:text-paper-light;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-copy {
+      animation: hero-enter 0.85s both;
+    }
+
+    .hero-photo {
+      animation: hero-enter 1s 0.12s both;
+    }
+  }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+  }
+
+  @media (min-width: 640px) {
+    .hero-photo {
+      @apply absolute inset-y-0 right-0;
+      z-index: -1;
+      width: 74%;
+      height: auto;
+      border-bottom: 0;
+    }
+
+    /* Push the window left so the subject lands right of the copy */
+    .hero-photo img {
+      object-position: 22% 20%;
+    }
+
+    .hero-photo::after {
+      background:
+        linear-gradient(90deg, hsl(var(--black)) 0%, hsl(var(--black) / 0.9) 22%, hsl(var(--black) / 0.5) 50%, hsl(var(--black) / 0.08) 88%),
+        radial-gradient(ellipse 60% 70% at 58% 36%, transparent 40%, hsl(var(--black) / 0.8) 100%),
+        linear-gradient(transparent 68%, hsl(var(--black)));
+    }
+
+    .hero-inner {
+      @apply flex items-center;
+      min-height: calc(100svh - var(--header-h));
+      padding-top: 4.5rem;
+      padding-bottom: calc(var(--dock-height) + 3.5rem);
+    }
+
+    .hero-copy {
+      max-width: 72%;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+    }
+
+    .hero-title {
+      font-size: clamp(4.75rem, 12vw, 7rem);
+      line-height: 0.88;
+      letter-spacing: -0.035em;
+      margin: 1.6rem 0 1.7rem;
+    }
+
+    .hero-actions {
+      @apply flex-row flex-wrap items-stretch;
+    }
+
+    .hero-count {
+      @apply justify-start;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-photo {
+      width: 56%;
+    }
+
+    .hero-photo img {
+      object-position: 50% 22%;
+    }
+
+    .hero-photo::after {
+      background:
+        linear-gradient(90deg, hsl(var(--black)) 0%, hsl(var(--black) / 0.82) 16%, hsl(var(--black) / 0.3) 42%, transparent 72%),
+        radial-gradient(ellipse 55% 70% at 52% 36%, transparent 42%, hsl(var(--black) / 0.78) 100%),
+        linear-gradient(transparent 72%, hsl(var(--black)));
+    }
+
+    .hero-copy {
+      max-width: min(52vw, 49rem);
+    }
+
+    .hero-title {
+      font-size: clamp(5.5rem, 8.2vw, 8.5rem);
+    }
+
+    .hero-statement {
+      font-size: clamp(1.1875rem, 1.7vw, 1.5rem);
+      line-height: 1.42;
+    }
+
+    .hero-description {
+      font-size: clamp(0.875rem, 1.05vw, 1.0625rem);
+    }
   }
 }
