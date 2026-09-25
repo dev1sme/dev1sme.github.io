@@ -1,11 +1,15 @@
-import { createContext, useContext, useState, ReactNode, ReactElement } from 'react';
+import { createContext, useContext, useState, ReactNode } from 'react';
+import type { Localized, Period } from '@/content';
 
 type Language = 'vi' | 'en';
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: <T extends string | ReactElement>(vi: T, en: T) => T;
+  /** Resolve a Localized value to the current language. */
+  l: (value: Localized) => string;
+  /** Format a Period as "start - end", with "Present" for an open end. */
+  formatPeriod: (period: Period, present: Localized) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -13,10 +17,13 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>('vi');
 
-  const t = <T extends string | ReactElement>(vi: T, en: T): T => (language === 'vi' ? vi : en);
+  const l = (value: Localized) => (typeof value === 'string' ? value : value[language]);
+
+  const formatPeriod = (period: Period, present: Localized) =>
+    `${period.start} - ${period.end ?? l(present)}`;
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, l, formatPeriod }}>
       {children}
     </LanguageContext.Provider>
   );

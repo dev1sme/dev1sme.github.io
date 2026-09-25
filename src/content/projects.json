@@ -1,0 +1,68 @@
+[
+  {
+    "title": "E-Commerce Platform",
+    "description": {
+      "vi": "Hệ thống thương mại điện tử hoàn chỉnh với quản lý sản phẩm, giỏ hàng, thanh toán và theo dõi đơn hàng. Tích hợp các cổng thanh toán phổ biến.",
+      "en": "Complete e-commerce system with product management, shopping cart, payment and order tracking. Integration with popular payment gateways."
+    },
+    "technologies": ["Java", "Spring Boot", "MySQL", "Redis", "Docker"],
+    "github": "https://github.com",
+    "demo": null,
+    "featured": true
+  },
+  {
+    "title": "Delivery Management System",
+    "description": {
+      "vi": "Hệ thống quản lý giao hàng với tính năng theo dõi real-time, tối ưu hóa lộ trình và quản lý đội ngũ shipper.",
+      "en": "Delivery management system with real-time tracking, route optimization and shipper team management."
+    },
+    "technologies": ["Java", "Spring Boot", "MongoDB", "Kafka", "AWS"],
+    "github": "https://github.com",
+    "demo": "https://demo.com",
+    "featured": true
+  },
+  {
+    "title": "HR Management System",
+    "description": {
+      "vi": "Ứng dụng quản lý nhân sự với chức năng chấm công, quản lý lương, đánh giá hiệu suất và báo cáo.",
+      "en": "HR management application with attendance, payroll management, performance evaluation and reporting."
+    },
+    "technologies": ["Java", "Hibernate", "PostgreSQL", "Angular"],
+    "github": "https://github.com",
+    "demo": null,
+    "featured": false
+  },
+  {
+    "title": "Chat Application",
+    "description": {
+      "vi": "Ứng dụng chat real-time với tính năng nhắn tin cá nhân, group chat và chia sẻ file.",
+      "en": "Real-time chat application with personal messaging, group chat and file sharing features."
+    },
+    "technologies": ["Spring Boot", "WebSocket", "Redis", "React"],
+    "github": "https://github.com",
+    "demo": "https://demo.com",
+    "featured": false
+  },
+  {
+    "title": "Task Management API",
+    "description": {
+      "vi": "RESTful API cho ứng dụng quản lý công việc với authentication, authorization và real-time notifications.",
+      "en": "RESTful API for task management application with authentication, authorization and real-time notifications."
+    },
+    "technologies": ["Java", "Spring Security", "JWT", "MySQL"],
+    "github": "https://github.com",
+    "demo": null,
+    "featured": false
+  },
+  {
+    "title": "Machine Learning Project",
+    "description": {
+      "vi": "Dự án nghiên cứu về ứng dụng Machine Learning trong dự đoán và phân tích dữ liệu.",
+      "en": "Research project on Machine Learning applications in prediction and data analysis."
+    },
+    "technologies": ["Python", "TensorFlow", "Pandas", "Flask"],
+    "github": "https://github.com",
+    "demo": null,
+    "featured": false
+  }
+]

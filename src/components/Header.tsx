@@ -2,19 +2,16 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { SECTION_IDS, ui } from '@/content';
 
 const Header = () => {
-  const { t } = useLanguage();
+  const { l } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
-    { label: t('Giới thiệu', 'About'), href: '#about' },
-    { label: t('Kinh nghiệm', 'Experience'), href: '#experience' },
-    { label: t('Kỹ năng', 'Skills'), href: '#skills' },
-    { label: t('Học vấn', 'Education'), href: '#education' },
-    { label: t('Dự án', 'Projects'), href: '#projects' },
-    { label: t('Liên hệ', 'Contact'), href: '#contact' },
-  ];
+  const navItems = SECTION_IDS.filter((id) => id !== 'home').map((id) => ({
+    label: l(ui.sections[id].label),
+    href: `#${id}`,
+  }));
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
@@ -33,12 +30,12 @@ const Header = () => {
             }}
             className="font-display text-2xl leading-none tracking-[-0.01em] uppercase"
           >
-            <span className="font-black">Dev1</span>
-            <span className="font-medium text-paper-light/70">sme</span>
+            <span className="font-black">{ui.brand.strong}</span>
+            <span className="font-medium text-paper-light/70">{ui.brand.light}</span>
           </a>
           <span className="hidden sm:block h-5 w-px bg-paper-light/25" aria-hidden />
           <span className="hidden sm:block kicker text-paper-light/60 truncate">
-            {t('Hồ sơ kỹ sư', 'Engineer profile')}
+            {l(ui.brand.tagline)}
           </span>
         </div>
 
@@ -47,7 +44,7 @@ const Header = () => {
           <button
             className="lg:hidden p-2 -mr-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={t('Mở menu', 'Toggle menu')}
+            aria-label={l(ui.header.menuToggle)}
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}

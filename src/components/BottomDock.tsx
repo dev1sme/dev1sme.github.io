@@ -1,23 +1,11 @@
 import { useEffect, useState } from 'react';
 import { ArrowDown, ArrowUp, ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-const SECTION_IDS = ['home', 'about', 'experience', 'skills', 'education', 'projects', 'contact'] as const;
-type SectionId = (typeof SECTION_IDS)[number];
+import { SECTION_IDS, ui, type SectionId } from '@/content';
 
 const BottomDock = () => {
-  const { t } = useLanguage();
+  const { l } = useLanguage();
   const [current, setCurrent] = useState<SectionId>('home');
-
-  const sectionNames: Record<SectionId, string> = {
-    home: t('Mở đầu', 'Intro'),
-    about: t('Giới thiệu', 'About'),
-    experience: t('Kinh nghiệm', 'Experience'),
-    skills: t('Kỹ năng', 'Skills'),
-    education: t('Học vấn', 'Education'),
-    projects: t('Dự án', 'Projects'),
-    contact: t('Liên hệ', 'Contact'),
-  };
 
   useEffect(() => {
     // A section counts as current once it crosses the middle of the viewport.
@@ -42,7 +30,7 @@ const BottomDock = () => {
 
   return (
     <nav
-      aria-label={t('Điều hướng nhanh', 'Quick navigation')}
+      aria-label={l(ui.dock.ariaLabel)}
       className="fixed bottom-0 inset-x-0 z-40 h-[var(--dock-height)] bg-black/85 backdrop-blur-md text-paper-light border-t border-paper-light/15"
     >
       <div className="container mx-auto px-4 sm:px-6 h-full flex items-center justify-between gap-4">
@@ -51,7 +39,7 @@ const BottomDock = () => {
           onClick={() => scrollTo(atTop ? 'about' : 'home')}
           className="kicker flex items-center gap-2 hover:opacity-70 transition-opacity"
         >
-          {atTop ? t('Cuộn để tiếp tục', 'Scroll to continue') : t('Lên đầu trang', 'Back to top')}
+          {l(atTop ? ui.dock.scrollDown : ui.dock.backToTop)}
           {atTop ? <ArrowDown size={16} /> : <ArrowUp size={16} />}
         </button>
 
@@ -59,7 +47,7 @@ const BottomDock = () => {
           <span className="tabular-nums">
             {position}/{SECTION_IDS.length}
           </span>
-          <span className="ml-3 text-paper-light/80">{sectionNames[current]}</span>
+          <span className="ml-3 text-paper-light/80">{l(ui.sections[current].label)}</span>
         </p>
 
         <button
@@ -67,7 +55,7 @@ const BottomDock = () => {
           onClick={() => scrollTo('contact')}
           className="dossier-link text-sm"
         >
-          {t('Liên hệ', 'Contact')} <ArrowUpRight size={14} strokeWidth={2.5} />
+          {l(ui.dock.contact)} <ArrowUpRight size={14} strokeWidth={2.5} />
         </button>
       </div>
     </nav>

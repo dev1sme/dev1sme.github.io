@@ -1,0 +1,50 @@
+[
+  {
+    "school": { "vi": "Tự học & Luyện tập Online", "en": "Self-study & Online Practice" },
+    "period": { "start": "01/2025", "end": null },
+    "location": "Online",
+    "degree": { "vi": "Học tập liên tục", "en": "Continuous Learning" },
+    "major": { "vi": "Cập nhật kiến thức mới mỗi ngày", "en": "Updating new knowledge every day" },
+    "gpa": null,
+    "description": {
+      "vi": "Không ngừng học hỏi và rèn luyện kỹ năng thông qua các nền tảng như Udemy, Coursera, LeetCode, và các dự án cá nhân.",
+      "en": "Continuously learning and practicing skills through platforms like Udemy, Coursera, LeetCode, and personal projects."
+    }
+  },
+  {
+    "school": { "vi": "Đại học Công Nghệ Jeonju", "en": "Jeonju University" },
+    "period": { "start": "09/2024", "end": "12/2024" },
+    "location": { "vi": "Hàn Quốc", "en": "South Korea" },
+    "degree": { "vi": "Chương trình trao đổi", "en": "Exchange Program" },
+    "major": "Cloud & AI",
+    "gpa": "3.5/4.0",
+    "description": {
+      "vi": "Nghiên cứu về điện toán đám mây và ứng dụng AI trong thực tiễn.",
+      "en": "Researched cloud computing and practical AI applications."
+    }
+  },
+  {
+    "school": { "vi": "Đại học Công Nghệ Hoa Nam", "en": "South China University of Technology" },
+    "period": { "start": "06/2024", "end": "09/2024" },
+    "location": { "vi": "Trung Quốc", "en": "China" },
+    "degree": { "vi": "Chương trình trao đổi", "en": "Exchange Program" },
+    "major": "AI & Machine Learning",
+    "gpa": "9/10",
+    "description": {
+      "vi": "Tham gia chương trình trao đổi quốc tế, nghiên cứu về trí tuệ nhân tạo và học máy.",
+      "en": "Participated in international exchange program, researching artificial intelligence and machine learning."
+    }
+  },
+  {
+    "school": { "vi": "Đại học Tôn Đức Thắng", "en": "Ton Duc Thang University" },
+    "period": { "start": "2019", "end": "2023" },
+    "location": { "vi": "TP. Hồ Chí Minh, Việt Nam", "en": "Ho Chi Minh City, Vietnam" },
+    "degree": { "vi": "Cử nhân Công nghệ thông tin", "en": "Bachelor of Information Technology" },
+    "major": { "vi": "Chuyên ngành: Mạng máy tính", "en": "Major: Computer Networks" },
+    "gpa": "7.60/10",
+    "description": {
+      "vi": "Hoàn thành chương trình đại học với kiến thức vững chắc về lập trình, cơ sở dữ liệu và mạng máy tính.",
+      "en": "Completed university program with solid knowledge in programming, databases and computer networks."
+    }
+  }
+]
