@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Software Engineer",
+    "company": "CYBiDGE CORPORATION",
+    "period": {"start": "12/2025", "end": null},
+    "location": {"vi": "TP. Hồ Chí Minh", "en": "Ho Chi Minh City"},
+    "responsibilities": [
+      {"vi": "Phát triển và bảo trì ứng dụng cấp doanh nghiệp", "en": "Develop and maintain enterprise-grade applications"},
+      {"vi": "Thiết kế kiến trúc hệ thống theo mô hình microservices", "en": "Design system architecture based on microservices"},
+      {"vi": "Tối ưu hiệu năng và khả năng mở rộng của hệ thống", "en": "Improve system performance and scalability"},
+      {"vi": "Phối hợp với đội ngũ quốc tế trong môi trường đa văn hóa", "en": "Collaborate with international teams in a multicultural environment"},
+      {"vi": "Áp dụng best practices và design patterns trong phát triển phần mềm", "en": "Apply best practices and design patterns across the codebase"}
+    ],
+    "techStack": ["Java", "Spring Boot", "React", "TypeScript", "AWS", "Docker", "Kubernetes"]
+  },
+  {
+    "title": "Software Engineer",
+    "company": {"vi": "Công ty cổ phần Én Việt", "en": "En Viet Joint Stock Company"},
+    "period": {"start": "01/2025", "end": "11/2025"},
+    "location": {"vi": "TP. Hồ Chí Minh", "en": "Ho Chi Minh City"},
+    "responsibilities": [
+      {"vi": "Phát triển backend với Java và Spring Boot", "en": "Built backend services with Java and Spring Boot"},
+      {"vi": "Thiết kế và tối ưu API, web service", "en": "Designed and optimized APIs and web services"},
+      {"vi": "Làm việc với cơ sở dữ liệu MySQL và PostgreSQL", "en": "Worked with MySQL and PostgreSQL databases"},
+      {"vi": "Triển khai ứng dụng bằng Docker và xây dựng quy trình CI/CD", "en": "Deployed applications with Docker and set up CI/CD pipelines"},
+      {"vi": "Review code và hướng dẫn thành viên trong nhóm", "en": "Reviewed code and mentored team members"}
+    ],
+    "techStack": ["Java", "Spring Boot", "MySQL", "PostgreSQL", "Docker", "Redis"]
+  },
+  {
+    "title": {"vi": "Sinh viên trao đổi quốc tế", "en": "International Exchange Student"},
+    "company": {"vi": "Chương trình trao đổi sinh viên", "en": "Student exchange programs"},
+    "period": {"start": "06/2024", "end": "12/2024"},
+    "location": {"vi": "Trung Quốc, Hàn Quốc", "en": "China, South Korea"},
+    "responsibilities": [],
+    "techStack": []
+  },
+  {
+    "title": "Software Engineer",
+    "company": {"vi": "Công ty cổ phần Én Việt", "en": "En Viet Joint Stock Company"},
+    "period": {"start": "04/2024", "end": "06/2024"},
+    "location": {"vi": "TP. Hồ Chí Minh", "en": "Ho Chi Minh City"},
+    "responsibilities": [
+      {"vi": "Quản lý dự án phát triển ứng dụng web và mobile", "en": "Managed web and mobile development projects"},
+      {"vi": "Phát triển backend với Java và Spring Boot", "en": "Built backend services with Java and Spring Boot"},
+      {"vi": "Thiết kế và tối ưu API, web service", "en": "Designed and optimized APIs and web services"},
+      {"vi": "Làm việc với cơ sở dữ liệu MySQL và PostgreSQL", "en": "Worked with MySQL and PostgreSQL databases"}
+    ],
+    "techStack": ["Java", "Spring Boot", "MySQL", "PostgreSQL", "Docker"]
+  },
+  {
+    "title": "Software Engineer",
+    "company": "AhaMove",
+    "period": {"start": "10/2023", "end": "03/2024"},
+    "location": {"vi": "TP. Hồ Chí Minh", "en": "Ho Chi Minh City"},
+    "responsibilities": [
+      {"vi": "Phát triển tính năng backend cho nền tảng giao hàng", "en": "Built backend features for a delivery platform"},
+      {"vi": "Tối ưu hiệu năng các API service", "en": "Optimized API service performance"},
+      {"vi": "Xử lý dữ liệu lớn và dữ liệu thời gian thực", "en": "Processed large-scale and real-time data"},
+      {"vi": "Làm việc theo quy trình Agile/Scrum", "en": "Worked in an Agile/Scrum process"},
+      {"vi": "Viết unit test và integration test", "en": "Wrote unit and integration tests"}
+    ],
+    "techStack": ["Java", "Spring Boot", "MongoDB", "Kafka", "AWS", "Microservices"]
+  }
+]

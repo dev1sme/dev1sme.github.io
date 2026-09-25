@@ -1,0 +1,38 @@
+[
+  {
+    "school": {"vi": "Tự học trực tuyến", "en": "Self-directed online learning"},
+    "period": {"start": "01/2025", "end": null},
+    "location": "Online",
+    "degree": {"vi": "Học tập liên tục", "en": "Continuous learning"},
+    "major": {"vi": "Thường xuyên cập nhật kiến thức chuyên môn", "en": "Keeping technical skills current"},
+    "gpa": null,
+    "description": {"vi": "Rèn luyện kỹ năng qua các nền tảng Udemy, Coursera, LeetCode và các dự án cá nhân.", "en": "Practicing through Udemy, Coursera, LeetCode and personal projects."}
+  },
+  {
+    "school": {"vi": "Đại học Jeonju", "en": "Jeonju University"},
+    "period": {"start": "09/2024", "end": "12/2024"},
+    "location": {"vi": "Hàn Quốc", "en": "South Korea"},
+    "degree": {"vi": "Chương trình trao đổi", "en": "Exchange program"},
+    "major": "Cloud & AI",
+    "gpa": "3.5/4.0",
+    "description": {"vi": "Nghiên cứu điện toán đám mây và ứng dụng thực tiễn của AI.", "en": "Studied cloud computing and practical applications of AI."}
+  },
+  {
+    "school": {"vi": "Đại học Công nghệ Hoa Nam", "en": "South China University of Technology"},
+    "period": {"start": "06/2024", "end": "09/2024"},
+    "location": {"vi": "Trung Quốc", "en": "China"},
+    "degree": {"vi": "Chương trình trao đổi", "en": "Exchange program"},
+    "major": "AI & Machine Learning",
+    "gpa": "9/10",
+    "description": {"vi": "Tham gia chương trình trao đổi quốc tế, nghiên cứu trí tuệ nhân tạo và học máy.", "en": "Joined an international exchange program focused on artificial intelligence and machine learning."}
+  },
+  {
+    "school": {"vi": "Đại học Tôn Đức Thắng", "en": "Ton Duc Thang University"},
+    "period": {"start": "2019", "end": "2023"},
+    "location": {"vi": "TP. Hồ Chí Minh, Việt Nam", "en": "Ho Chi Minh City, Vietnam"},
+    "degree": {"vi": "Cử nhân Công nghệ thông tin", "en": "Bachelor of Information Technology"},
+    "major": {"vi": "Chuyên ngành Mạng máy tính", "en": "Major in Computer Networks"},
+    "gpa": "7.60/10",
+    "description": {"vi": "Xây dựng nền tảng vững chắc về lập trình, cơ sở dữ liệu và mạng máy tính.", "en": "Built a solid foundation in programming, databases and computer networks."}
+  }
+]

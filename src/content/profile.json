@@ -1,0 +1,31 @@
+{
+  "name": "Lê Tuấn Thông",
+  "role": "Software Engineer",
+  "location": {"vi": "TP. Hồ Chí Minh", "en": "Ho Chi Minh City"},
+  "address": {"vi": "Nhà Bè, TP. Hồ Chí Minh", "en": "Nha Be, Ho Chi Minh City"},
+  "birthDate": "01/01/2001",
+  "email": "contact@dev1sme.cloud",
+  "phone": "0938 179 726",
+  "social": [
+    {"label": "GitHub", "url": "https://github.com/dev1sme"},
+    {"label": "LinkedIn", "url": "https://linkedin.com/in/dev1sme"},
+    {"label": "Facebook", "url": "https://facebook.com/letuanthong.35"},
+    {"label": "Instagram", "url": "https://instagram.com/letuanthong"},
+    {"label": "X", "url": "https://x.com/dev1sme"}
+  ],
+  "stats": {"yearsOfExperience": "3+", "projectsCompleted": "5+", "countriesStudied": "3"},
+  "hero": {
+    "tagline": {"vi": "Kỹ sư phần mềm, xây dựng sản phẩm web trọn vẹn: từ API, giao diện đến hạ tầng triển khai.", "en": "Software engineer building web products end to end, from APIs and interfaces to deployment."},
+    "summary": {"vi": "Hơn 3 năm phát triển phần mềm với Java, Spring Boot và React, từ nền tảng giao hàng đến hệ thống doanh nghiệp, làm việc cùng đội ngũ quốc tế.", "en": "Over 3 years of software development with Java, Spring Boot and React, from a delivery platform to enterprise systems, alongside international teams."}
+  },
+  "about": {
+    "lead": {"vi": "Tôi muốn trở thành kỹ sư phần mềm có thể đảm nhận một sản phẩm trọn vẹn: từ thiết kế hệ thống, viết code đến triển khai và vận hành.", "en": "I want to be a software engineer who can own a product end to end: from system design and code to deployment and operations."},
+    "paragraphs": [
+      {"vi": "Thế mạnh hiện tại của tôi là backend với Java và Spring Boot. Bên cạnh đó, tôi làm việc với React và TypeScript ở phía giao diện, Docker và CI/CD ở khâu triển khai, và từng quản lý dự án web lẫn mobile.", "en": "My core strength today is backend work in Java and Spring Boot. Alongside that, I work with React and TypeScript on the front end, Docker and CI/CD for delivery, and have managed both web and mobile projects."},
+      {"vi": "Các chương trình trao đổi về AI và điện toán đám mây giúp tôi nhìn rộng hơn công việc hằng ngày. Bước tiếp theo của tôi là làm chủ cloud và kiến trúc hệ thống, để thiết kế những sản phẩm quy mô lớn hơn.", "en": "Exchange programs in AI and cloud computing broadened my view beyond day-to-day work. My next step is mastering cloud and system architecture to design larger-scale products."}
+    ]
+  },
+  "contact": {
+    "intro": {"vi": "Tôi luôn sẵn sàng trao đổi về cơ hội việc làm, dự án hợp tác hoặc các vấn đề kỹ thuật. Email là kênh liên hệ nhanh nhất.", "en": "I'm open to new roles, project collaborations and technical discussions. Email is the fastest way to reach me."}
+  }
+}

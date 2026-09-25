@@ -1,0 +1,74 @@
+{
+  "categories": [
+    {
+      "title": {"vi": "Ngôn ngữ lập trình", "en": "Programming Languages"},
+      "skills": [
+        {"name": "Java", "level": 90},
+        {"name": "C#", "level": 70},
+        {"name": "C++", "level": 60},
+        {"name": "JavaScript", "level": 65},
+        {"name": "Python", "level": 55}
+      ]
+    },
+    {
+      "title": "Frameworks & Libraries",
+      "skills": [
+        {"name": "Spring Boot", "level": 85},
+        {"name": "Hibernate", "level": 75},
+        {"name": "Angular", "level": 60},
+        {"name": "React", "level": 55},
+        {"name": ".NET", "level": 50}
+      ]
+    },
+    {
+      "title": "Databases",
+      "skills": [
+        {"name": "MySQL", "level": 85},
+        {"name": "PostgreSQL", "level": 75},
+        {"name": "Oracle", "level": 65},
+        {"name": "MongoDB", "level": 60},
+        {"name": "Redis", "level": 55}
+      ]
+    },
+    {
+      "title": "DevOps & Cloud",
+      "skills": [
+        {"name": "Docker", "level": 75},
+        {"name": "AWS", "level": 50},
+        {"name": "Firebase", "level": 65},
+        {"name": "CI/CD", "level": 60},
+        {"name": "Linux", "level": 70}
+      ]
+    },
+    {
+      "title": {"vi": "Công cụ & Khác", "en": "Tools & Others"},
+      "skills": [
+        {"name": "Git", "level": 85},
+        {"name": "Jira", "level": 70},
+        {"name": "Postman", "level": 80},
+        {"name": "IntelliJ IDEA", "level": 85},
+        {"name": "VS Code", "level": 80}
+      ]
+    },
+    {
+      "title": {"vi": "Kỹ năng mềm", "en": "Soft Skills"},
+      "skills": [
+        {"name": {"vi": "Làm việc nhóm", "en": "Teamwork"}, "level": 85},
+        {"name": {"vi": "Giải quyết vấn đề", "en": "Problem Solving"}, "level": 80},
+        {"name": {"vi": "Giao tiếp", "en": "Communication"}, "level": 75},
+        {"name": {"vi": "Quản lý thời gian", "en": "Time Management"}, "level": 70},
+        {"name": {"vi": "Tiếng Anh", "en": "English"}, "level": 65}
+      ]
+    }
+  ],
+  "others": [
+    "Kafka",
+    "RabbitMQ",
+    "Elasticsearch",
+    "GraphQL",
+    "REST API",
+    "Microservices",
+    "Design Patterns",
+    "Agile/Scrum"
+  ]
+}

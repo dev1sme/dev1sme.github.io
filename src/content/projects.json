@@ -1,0 +1,50 @@
+[
+  {
+    "title": "E-Commerce Platform",
+    "description": {"vi": "Hệ thống thương mại điện tử hoàn chỉnh: quản lý sản phẩm, giỏ hàng, thanh toán và theo dõi đơn hàng, tích hợp các cổng thanh toán phổ biến.", "en": "A complete e-commerce platform covering product management, cart, checkout and order tracking, integrated with popular payment gateways."},
+    "technologies": ["Java", "Spring Boot", "MySQL", "Redis", "Docker"],
+    "github": "https://github.com",
+    "demo": null,
+    "featured": true
+  },
+  {
+    "title": "Delivery Management System",
+    "description": {"vi": "Hệ thống quản lý giao hàng với theo dõi thời gian thực, tối ưu lộ trình và quản lý đội ngũ giao hàng.", "en": "A delivery management system with real-time tracking, route optimization and courier management."},
+    "technologies": ["Java", "Spring Boot", "MongoDB", "Kafka", "AWS"],
+    "github": "https://github.com",
+    "demo": "https://demo.com",
+    "featured": true
+  },
+  {
+    "title": "HR Management System",
+    "description": {"vi": "Ứng dụng quản lý nhân sự: chấm công, tính lương, đánh giá hiệu suất và báo cáo.", "en": "An HR management application for attendance, payroll, performance reviews and reporting."},
+    "technologies": ["Java", "Hibernate", "PostgreSQL", "Angular"],
+    "github": "https://github.com",
+    "demo": null,
+    "featured": false
+  },
+  {
+    "title": "Chat Application",
+    "description": {"vi": "Ứng dụng nhắn tin thời gian thực, hỗ trợ trò chuyện cá nhân, nhóm và chia sẻ tệp.", "en": "A real-time messaging app with one-to-one chat, group chat and file sharing."},
+    "technologies": ["Spring Boot", "WebSocket", "Redis", "React"],
+    "github": "https://github.com",
+    "demo": "https://demo.com",
+    "featured": false
+  },
+  {
+    "title": "Task Management API",
+    "description": {"vi": "RESTful API cho ứng dụng quản lý công việc, có xác thực, phân quyền và thông báo thời gian thực.", "en": "A RESTful API for task management with authentication, authorization and real-time notifications."},
+    "technologies": ["Java", "Spring Security", "JWT", "MySQL"],
+    "github": "https://github.com",
+    "demo": null,
+    "featured": false
+  },
+  {
+    "title": "Machine Learning Project",
+    "description": {"vi": "Dự án nghiên cứu ứng dụng Machine Learning trong dự đoán và phân tích dữ liệu.", "en": "A research project applying machine learning to prediction and data analysis."},
+    "technologies": ["Python", "TensorFlow", "Pandas", "Flask"],
+    "github": "https://github.com",
+    "demo": null,
+    "featured": false
+  }
+]

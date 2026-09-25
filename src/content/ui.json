@@ -1,0 +1,65 @@
+{
+  "brand": {"name": "dev1sme", "tagline": {"vi": "Hồ sơ kỹ sư", "en": "Engineer profile"}},
+  "sections": {
+    "home": {"label": {"vi": "Mở đầu", "en": "Intro"}},
+    "about": {
+      "label": {"vi": "Giới thiệu", "en": "About"},
+      "title": {"vi": "Định hướng", "en": "Direction"}
+    },
+    "experience": {
+      "label": {"vi": "Kinh nghiệm", "en": "Experience"},
+      "title": {"vi": "Quá trình làm việc", "en": "Work history"}
+    },
+    "skills": {
+      "label": {"vi": "Kỹ năng", "en": "Skills"},
+      "title": {"vi": "Năng lực chuyên môn", "en": "Expertise"}
+    },
+    "education": {
+      "label": {"vi": "Học vấn", "en": "Education"},
+      "title": {"vi": "Quá trình học tập", "en": "Academic background"}
+    },
+    "projects": {
+      "label": {"vi": "Dự án", "en": "Projects"},
+      "title": {"vi": "Dự án tiêu biểu", "en": "Selected projects"}
+    },
+    "contact": {
+      "label": {"vi": "Liên hệ", "en": "Contact"},
+      "title": {"vi": "Kết nối với tôi", "en": "Get in touch"}
+    }
+  },
+  "fields": {
+    "birthDate": {"vi": "Ngày sinh", "en": "Date of birth"},
+    "address": {"vi": "Địa chỉ", "en": "Address"},
+    "email": "Email",
+    "phone": {"vi": "Điện thoại", "en": "Phone"},
+    "social": {"vi": "Mạng xã hội", "en": "Social"}
+  },
+  "header": {"menuToggle": {"vi": "Mở menu", "en": "Toggle menu"}},
+  "hero": {
+    "contactButton": {"vi": "Liên hệ", "en": "Contact me"},
+    "yearsLabel": {"vi": "Năm\nkinh nghiệm", "en": "Years of\nexperience"}
+  },
+  "about": {
+    "profileKicker": {"vi": "Hồ sơ", "en": "Profile"},
+    "yearsCaption": {"vi": "Năm kinh nghiệm phát triển phần mềm.", "en": "Years of software development."},
+    "projectsCompleted": {"vi": "Dự án hoàn thành", "en": "Projects completed"},
+    "countriesStudied": {"vi": "Quốc gia từng học tập", "en": "Countries studied in"}
+  },
+  "period": {"present": {"vi": "Hiện tại", "en": "Present"}},
+  "experience": {"current": {"vi": "Hiện tại", "en": "Current"}, "stack": {"vi": "Công nghệ", "en": "Tech stack"}},
+  "skills": {"others": {"vi": "Công nghệ khác", "en": "Other technologies"}},
+  "education": {"gpa": "GPA"},
+  "projects": {
+    "featured": {"vi": "Nổi bật", "en": "Featured"},
+    "others": {"vi": "Dự án khác", "en": "Other projects"}
+  },
+  "dock": {
+    "ariaLabel": {"vi": "Điều hướng nhanh", "en": "Quick navigation"},
+    "scrollDown": {"vi": "Cuộn để tiếp tục", "en": "Scroll to continue"},
+    "backToTop": {"vi": "Lên đầu trang", "en": "Back to top"},
+    "contact": {"vi": "Liên hệ", "en": "Contact"}
+  },
+  "footer": {
+    "builtWith": {"vi": "Xây dựng bằng React và Tailwind CSS", "en": "Built with React and Tailwind CSS"}
+  }
+}
