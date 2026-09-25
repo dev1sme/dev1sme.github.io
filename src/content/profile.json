@@ -1,53 +1,31 @@
 {
   "name": "Lê Tuấn Thông",
   "role": "Software Engineer",
-  "location": { "vi": "TP. Hồ Chí Minh", "en": "Ho Chi Minh City" },
-  "address": { "vi": "Nhà Bè, TP. Hồ Chí Minh", "en": "Nha Be, Ho Chi Minh City" },
+  "location": {"vi": "TP. Hồ Chí Minh", "en": "Ho Chi Minh City"},
+  "address": {"vi": "Nhà Bè, TP. Hồ Chí Minh", "en": "Nha Be, Ho Chi Minh City"},
   "birthDate": "01/01/2001",
   "email": "contact@dev1sme.cloud",
   "phone": "0938 179 726",
   "social": [
-    { "label": "GitHub", "url": "https://github.com/dev1sme" },
-    { "label": "LinkedIn", "url": "https://linkedin.com/in/dev1sme" },
-    { "label": "Facebook", "url": "https://facebook.com/letuanthong.35" },
-    { "label": "Instagram", "url": "https://instagram.com/letuanthong" },
-    { "label": "X", "url": "https://x.com/dev1sme" }
+    {"label": "GitHub", "url": "https://github.com/dev1sme"},
+    {"label": "LinkedIn", "url": "https://linkedin.com/in/dev1sme"},
+    {"label": "Facebook", "url": "https://facebook.com/letuanthong.35"},
+    {"label": "Instagram", "url": "https://instagram.com/letuanthong"},
+    {"label": "X", "url": "https://x.com/dev1sme"}
   ],
-  "stats": {
-    "yearsOfExperience": "2+",
-    "projectsCompleted": "5+",
-    "countriesStudied": "3"
-  },
+  "stats": {"yearsOfExperience": "2+", "projectsCompleted": "5+", "countriesStudied": "3"},
   "hero": {
-    "tagline": {
-      "vi": "Backend engineer. Xây hệ thống mạnh mẽ, tối ưu và mở rộng được.",
-      "en": "Backend engineer. I build systems that are robust, fast and ready to scale."
-    },
-    "summary": {
-      "vi": "Hơn 2 năm phát triển web với Java và Spring Boot, từ nền tảng giao hàng đến ứng dụng enterprise cho team quốc tế.",
-      "en": "Over 2 years building for the web with Java and Spring Boot, from a delivery platform to enterprise applications for international teams."
-    }
+    "tagline": {"vi": "Kỹ sư backend, chuyên xây dựng hệ thống ổn định, hiệu năng cao và dễ mở rộng.", "en": "Backend engineer building stable, high-performance systems that scale."},
+    "summary": {"vi": "Hơn 2 năm phát triển ứng dụng web với Java và Spring Boot, từ nền tảng giao hàng đến hệ thống doanh nghiệp, làm việc cùng đội ngũ quốc tế.", "en": "Over 2 years of web development with Java and Spring Boot, from a delivery platform to enterprise systems, alongside international teams."}
   },
   "about": {
-    "lead": {
-      "vi": "Backend Engineer hơn 2 năm kinh nghiệm, chuyên phát triển hệ thống web với Java và Spring Boot, từ startup đến doanh nghiệp lớn.",
-      "en": "Backend Engineer with over 2 years of experience, building web systems with Java and Spring Boot for startups and large enterprises."
-    },
+    "lead": {"vi": "Tôi là kỹ sư backend với hơn 2 năm kinh nghiệm phát triển hệ thống web bằng Java và Spring Boot, đã tham gia dự án ở cả startup lẫn doanh nghiệp lớn.", "en": "I'm a backend engineer with over 2 years of experience building web systems in Java and Spring Boot, for both startups and large enterprises."},
     "paragraphs": [
-      {
-        "vi": "Nền tảng từ Đại học Tôn Đức Thắng, cùng các chương trình trao đổi tại Trung Quốc và Hàn Quốc về AI, Machine Learning và Cloud Computing.",
-        "en": "Grounded at Ton Duc Thang University, then broadened through exchange programs in China and South Korea on AI, Machine Learning and Cloud Computing."
-      },
-      {
-        "vi": "Mục tiêu: trở thành kỹ sư phần mềm toàn diện, đóng góp giá trị cho các dự án phức tạp.",
-        "en": "The goal: become a well-rounded software engineer who adds real value to complex projects."
-      }
+      {"vi": "Tôi tốt nghiệp ngành Công nghệ thông tin tại Đại học Tôn Đức Thắng, sau đó tham gia chương trình trao đổi tại Trung Quốc và Hàn Quốc về AI, Machine Learning và Cloud Computing.", "en": "I studied Information Technology at Ton Duc Thang University, then joined exchange programs in China and South Korea focused on AI, machine learning and cloud computing."},
+      {"vi": "Mục tiêu của tôi là trở thành một kỹ sư phần mềm toàn diện, đủ năng lực đảm nhận những bài toán phức tạp.", "en": "My goal is to grow into a well-rounded software engineer who can take on complex problems."}
     ]
   },
   "contact": {
-    "intro": {
-      "vi": "Sẵn sàng nghe về cơ hội mới, dự án thú vị, hoặc chỉ là một cuộc trò chuyện. Email là cách nhanh nhất.",
-      "en": "Open to new opportunities, interesting projects, or just a conversation. Email is the fastest way to reach me."
-    }
+    "intro": {"vi": "Tôi luôn sẵn sàng trao đổi về cơ hội việc làm, dự án hợp tác hoặc các vấn đề kỹ thuật. Email là kênh liên hệ nhanh nhất.", "en": "I'm open to new roles, project collaborations and technical discussions. Email is the fastest way to reach me."}
   }
 }

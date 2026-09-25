@@ -52,7 +52,7 @@ const ProjectsSection = () => {
           {otherProjects.map((project) => (
             <li
               key={l(project.title)}
-              className="grid gap-y-3 gap-x-10 border-b border-line py-6 md:grid-cols-[1fr_1.4fr] lg:grid-cols-[1fr_1.4fr_14rem_auto] lg:items-baseline"
+              className="grid gap-y-3 gap-x-10 border-b border-line py-6 md:grid-cols-[1fr_1.4fr] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)_14rem_10rem] lg:items-baseline"
             >
               <h4 className="font-display text-2xl font-bold uppercase leading-tight">{l(project.title)}</h4>
               <p className="text-graphite leading-relaxed max-w-[60ch]">{l(project.description)}</p>

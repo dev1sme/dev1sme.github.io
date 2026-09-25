@@ -97,6 +97,7 @@
 
   h1, h2, h3, h4 {
     @apply font-display;
+    text-wrap: balance;
   }
 
   section[id] {
