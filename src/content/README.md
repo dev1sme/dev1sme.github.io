@@ -32,8 +32,8 @@ The large year is taken from `period.start`.
 
 **Hide a GPA**: set `"gpa": null`. Otherwise write it as `"score/scale"`, e.g. `"3.5/4.0"`.
 
-**Change years of experience**: update `profile.stats.yearsOfExperience`. The sentences in
-`profile.hero.summary` and `profile.about.lead` mention the number in prose, so update those too.
+**Change years of experience**: update `profile.stats.yearsOfExperience`. The sentence in
+`profile.hero.summary` mentions the number in prose, so update it too.
 
 ## Checking your edits
 
