@@ -13,16 +13,16 @@
     {"label": "Instagram", "url": "https://instagram.com/letuanthong"},
     {"label": "X", "url": "https://x.com/dev1sme"}
   ],
-  "stats": {"yearsOfExperience": "2+", "projectsCompleted": "5+", "countriesStudied": "3"},
+  "stats": {"yearsOfExperience": "3+", "projectsCompleted": "5+", "countriesStudied": "3"},
   "hero": {
-    "tagline": {"vi": "Kỹ sư backend, chuyên xây dựng hệ thống ổn định, hiệu năng cao và dễ mở rộng.", "en": "Backend engineer building stable, high-performance systems that scale."},
-    "summary": {"vi": "Hơn 2 năm phát triển ứng dụng web với Java và Spring Boot, từ nền tảng giao hàng đến hệ thống doanh nghiệp, làm việc cùng đội ngũ quốc tế.", "en": "Over 2 years of web development with Java and Spring Boot, from a delivery platform to enterprise systems, alongside international teams."}
+    "tagline": {"vi": "Kỹ sư phần mềm, xây dựng sản phẩm web trọn vẹn: từ API, giao diện đến hạ tầng triển khai.", "en": "Software engineer building web products end to end, from APIs and interfaces to deployment."},
+    "summary": {"vi": "Hơn 3 năm phát triển phần mềm với Java, Spring Boot và React, từ nền tảng giao hàng đến hệ thống doanh nghiệp, làm việc cùng đội ngũ quốc tế.", "en": "Over 3 years of software development with Java, Spring Boot and React, from a delivery platform to enterprise systems, alongside international teams."}
   },
   "about": {
-    "lead": {"vi": "Tôi tập trung phát triển chuyên sâu về backend: xây dựng hệ thống ổn định, hiệu năng cao và dễ mở rộng với Java và Spring Boot.", "en": "I'm focused on going deep in backend engineering: building stable, high-performance, scalable systems with Java and Spring Boot."},
+    "lead": {"vi": "Tôi muốn trở thành kỹ sư phần mềm có thể đảm nhận một sản phẩm trọn vẹn: từ thiết kế hệ thống, viết code đến triển khai và vận hành.", "en": "I want to be a software engineer who can own a product end to end: from system design and code to deployment and operations."},
     "paragraphs": [
-      {"vi": "Tôi tốt nghiệp ngành Công nghệ thông tin tại Đại học Tôn Đức Thắng, sau đó tham gia chương trình trao đổi tại Trung Quốc và Hàn Quốc về AI, Machine Learning và Cloud Computing.", "en": "I studied Information Technology at Ton Duc Thang University, then joined exchange programs in China and South Korea focused on AI, machine learning and cloud computing."},
-      {"vi": "Mục tiêu dài hạn là trở thành kỹ sư phần mềm toàn diện, đủ năng lực đảm nhận những bài toán phức tạp.", "en": "Long term, I aim to become a well-rounded software engineer who can take on complex problems."}
+      {"vi": "Thế mạnh hiện tại của tôi là backend với Java và Spring Boot. Bên cạnh đó, tôi làm việc với React và TypeScript ở phía giao diện, Docker và CI/CD ở khâu triển khai, và từng quản lý dự án web lẫn mobile.", "en": "My core strength today is backend work in Java and Spring Boot. Alongside that, I work with React and TypeScript on the front end, Docker and CI/CD for delivery, and have managed both web and mobile projects."},
+      {"vi": "Các chương trình trao đổi về AI và điện toán đám mây giúp tôi nhìn rộng hơn công việc hằng ngày. Bước tiếp theo của tôi là làm chủ cloud và kiến trúc hệ thống, để thiết kế những sản phẩm quy mô lớn hơn.", "en": "Exchange programs in AI and cloud computing broadened my view beyond day-to-day work. My next step is mastering cloud and system architecture to design larger-scale products."}
     ]
   },
   "contact": {

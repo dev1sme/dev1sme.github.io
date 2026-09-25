@@ -41,7 +41,7 @@
   },
   "about": {
     "profileKicker": {"vi": "Hồ sơ", "en": "Profile"},
-    "yearsCaption": {"vi": "Năm kinh nghiệm phát triển backend.", "en": "Years of backend development."},
+    "yearsCaption": {"vi": "Năm kinh nghiệm phát triển phần mềm.", "en": "Years of software development."},
     "projectsCompleted": {"vi": "Dự án hoàn thành", "en": "Projects completed"},
     "countriesStudied": {"vi": "Quốc gia từng học tập", "en": "Countries studied in"}
   },
