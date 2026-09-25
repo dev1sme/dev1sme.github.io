@@ -1,13 +1,11 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Briefcase, Calendar, MapPin, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
+import { Plus, Minus } from 'lucide-react';
+import SectionHeading from './SectionHeading';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const ExperienceSection = () => {
   const { t } = useLanguage();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
   const experienceData = [
@@ -92,122 +90,95 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="py-24" ref={ref}>
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-heading">
-            <span className="text-primary font-mono text-lg font-normal">02.</span>{' '}
-            {t('Kinh nghiệm', 'Experience')}
-          </h2>
-          <p className="section-subheading">{t('Hành trình nghề nghiệp của tôi', 'My professional journey')}</p>
-        </motion.div>
+    <section id="experience" className="ground-paper-light py-24 lg:py-32">
+      <div className="container mx-auto px-4 sm:px-6">
+        <SectionHeading
+          kicker={t('Kinh nghiệm', 'Experience')}
+          title={t('Dòng thời gian', 'Timeline')}
+          className="mb-14 lg:mb-20"
+        />
 
-        <div className="max-w-4xl mx-auto space-y-6">
-          {experienceData.map((exp, index) => (
-            <motion.div
-              key={exp.key}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="card-glass overflow-hidden"
-            >
-              {/* Header - Always visible */}
-              <button
-                onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                className="w-full p-6 text-left hover:bg-muted/20 transition-colors"
+        <ol className="border-t-2 border-ink">
+          {experienceData.map((exp, index) => {
+            const startYear = exp.period.match(/\d{4}/)?.[0];
+            const hasDetails = exp.responsibilities.length > 0 || exp.techStack.length > 0;
+            const isOpen = hasDetails && expandedIndex === index;
+
+            return (
+              <li
+                key={exp.key}
+                className="grid md:grid-cols-[minmax(10rem,14rem)_1fr] gap-x-10 border-b border-line py-8 md:py-10"
               >
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-primary/10 shrink-0">
-                      <Briefcase className="w-6 h-6 text-primary" />
-                    </div>
+                <div className="mb-4 md:mb-0">
+                  <p className="ghost-figure text-[4.5rem] md:text-[6.5rem]" aria-hidden>
+                    {startYear}
+                  </p>
+                  <p className="text-sm text-graphite mt-2">{exp.period}</p>
+                </div>
+
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => hasDetails && setExpandedIndex(isOpen ? null : index)}
+                    aria-expanded={hasDetails ? isOpen : undefined}
+                    disabled={!hasDetails}
+                    className="group w-full text-left flex items-start justify-between gap-6 disabled:cursor-default"
+                  >
                     <div>
-                      <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1">
-                        <h3 className="text-xl font-heading font-semibold text-foreground">
-                          {exp.title}
+                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                        <h3 className="font-display text-3xl md:text-4xl font-extrabold uppercase leading-none">
+                          {exp.company}
                         </h3>
                         {exp.current && (
-                          <span className="px-2 py-0.5 text-xs rounded-full bg-primary/20 text-primary font-medium whitespace-nowrap">
+                          <span className="kicker bg-ink text-paper-light px-2 py-0.5 text-xs">
                             {t('Hiện tại', 'Current')}
                           </span>
                         )}
                       </div>
-                      <p className="text-primary font-medium">{exp.company}</p>
+                      <p className="font-semibold">
+                        {exp.title}
+                        <span className="text-graphite font-normal"> / {exp.location}</span>
+                      </p>
                     </div>
-                  </div>
+                    {hasDetails && (
+                      <span className="shrink-0 border border-ink p-1.5 transition-colors group-hover:bg-ink group-hover:text-paper-light">
+                        {isOpen ? <Minus size={18} /> : <Plus size={18} />}
+                      </span>
+                    )}
+                  </button>
 
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-2">
-                      <Calendar size={14} />
-                      <span>{exp.period}</span>
-                    </div>
-                    <div className="hidden sm:flex items-center gap-2">
-                      <MapPin size={14} />
-                      <span>{exp.location}</span>
-                    </div>
-                    <div className="p-2">
-                      {expandedIndex === index ? (
-                        <ChevronUp size={20} className="text-primary" />
-                      ) : (
-                        <ChevronDown size={20} />
-                      )}
-                    </div>
-                  </div>
+                  {hasDetails && (
+                    <motion.div
+                      initial={false}
+                      animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-6 grid lg:grid-cols-[1fr_16rem] gap-8">
+                        <ul className="space-y-2.5 max-w-[62ch]">
+                          {exp.responsibilities.map((resp) => (
+                            <li key={resp} className="flex gap-3 text-graphite leading-relaxed">
+                              <span className="text-ink" aria-hidden>—</span>
+                              <span>{resp}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {exp.techStack.length > 0 && (
+                          <div className="lg:border-l lg:border-line lg:pl-6">
+                            <p className="kicker text-graphite text-xs mb-2">{t('Công nghệ', 'Stack')}</p>
+                            <p className="font-display text-xl font-bold uppercase leading-snug">
+                              {exp.techStack.join(' / ')}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
                 </div>
-              </button>
-
-              {/* Expandable content */}
-              <motion.div
-                initial={false}
-                animate={{
-                  height: expandedIndex === index ? 'auto' : 0,
-                  opacity: expandedIndex === index ? 1 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-                className="overflow-hidden"
-              >
-                <div className="px-6 pb-6 border-t border-border/50">
-                  {/* Responsibilities */}
-                  <div className="pt-6">
-                    <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
-                      {t('Trách nhiệm chính', 'Key Responsibilities')}
-                    </h4>
-                    <ul className="space-y-3">
-                      {exp.responsibilities.map((resp, respIndex) => (
-                        <li
-                          key={respIndex}
-                          className="flex items-start gap-3 text-muted-foreground"
-                        >
-                          <span className="text-primary mt-1.5">▹</span>
-                          <span>{resp}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Tech Stack */}
-                  <div className="mt-6">
-                    <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
-                      {t('Công nghệ sử dụng', 'Technologies Used')}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.techStack.map((tech) => (
-                        <span key={tech} className="skill-tag">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

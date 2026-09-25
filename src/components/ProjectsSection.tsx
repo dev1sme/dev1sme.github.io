@@ -1,13 +1,22 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { ExternalLink, Github, Folder } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import SectionHeading from './SectionHeading';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+const ProjectLinks = ({ github, demo }: { github: string; demo: string | null }) => (
+  <div className="flex flex-wrap gap-6">
+    <a href={github} target="_blank" rel="noopener noreferrer" className="dossier-link">
+      GitHub <ArrowUpRight size={16} strokeWidth={2.5} />
+    </a>
+    {demo && (
+      <a href={demo} target="_blank" rel="noopener noreferrer" className="dossier-link">
+        Demo <ArrowUpRight size={16} strokeWidth={2.5} />
+      </a>
+    )}
+  </div>
+);
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const projectsData = [
     {
@@ -82,163 +91,50 @@ const ProjectsSection = () => {
   const otherProjects = projectsData.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-24" ref={ref}>
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-heading">
-            <span className="text-primary font-mono text-lg font-normal">05.</span>{' '}
-            {t('Dự án', 'Projects')}
-          </h2>
-          <p className="section-subheading">{t('Một số dự án tôi đã thực hiện', 'Some projects I have worked on')}</p>
-        </motion.div>
+    <section id="projects" className="ground-paper-light py-24 lg:py-32">
+      <div className="container mx-auto px-4 sm:px-6">
+        <SectionHeading
+          kicker={t('Dự án', 'Projects')}
+          title={t('Đã làm', 'Selected work')}
+          className="mb-14 lg:mb-20"
+        />
 
-        {/* Featured Projects */}
-        <div className="max-w-6xl mx-auto mb-16 space-y-12">
-          {featuredProjects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`flex flex-col ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              } gap-8 items-center`}
-            >
-              {/* Project Image/Placeholder */}
-              <div className="lg:w-1/2">
-                <div className="relative group">
-                  <div className="aspect-video rounded-xl bg-muted/50 flex items-center justify-center overflow-hidden border border-border">
-                    <div className="text-center p-8">
-                      <Folder className="w-16 h-16 text-primary/50 mx-auto mb-4" />
-                      <p className="text-muted-foreground text-sm">{t('Xem trước dự án', 'Project Preview')}</p>
-                    </div>
-                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Project Details */}
-              <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-8' : 'lg:pr-8'}`}>
-                <p className="text-primary font-mono text-sm mb-2">{t('Dự án nổi bật', 'Featured Project')}</p>
-                <h3 className="text-2xl font-heading font-bold text-foreground mb-4">
-                  {project.title}
-                </h3>
-                <div className="card-glass p-6 mb-4">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-sm font-mono text-primary/80"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-muted-foreground hover:text-primary transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <Github size={22} />
-                  </a>
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 text-muted-foreground hover:text-primary transition-colors"
-                      aria-label="Live Demo"
-                    >
-                      <ExternalLink size={22} />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Other Projects Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mb-8"
-        >
-          <h3 className="text-xl font-heading font-semibold text-foreground">
-            {t('Các dự án khác', 'Other Projects')}
-          </h3>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {otherProjects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-              className="card-glass p-6 hover:border-primary/50 hover:-translate-y-2 transition-all duration-300 group"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <Folder className="w-6 h-6 text-primary" />
-                </div>
-                <div className="flex gap-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <Github size={20} />
-                  </a>
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
-                      aria-label="Live Demo"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              <h3 className="text-lg font-heading font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 mb-20">
+          {featuredProjects.map((project) => (
+            <article key={project.title} className="border-t-2 border-ink pt-6 flex flex-col">
+              <p className="kicker text-graphite mb-4">{t('Nổi bật', 'Featured')}</p>
+              <h3 className="font-display text-4xl md:text-5xl font-extrabold uppercase leading-[0.9] mb-5">
                 {project.title}
               </h3>
-              <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-                {project.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.slice(0, 4).map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs font-mono text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <p className="text-lg leading-relaxed text-graphite max-w-[52ch] mb-6">{project.description}</p>
+              <p className="font-display text-lg font-bold uppercase mb-8">{project.technologies.join(' / ')}</p>
+              <div className="mt-auto">
+                <ProjectLinks github={project.github} demo={project.demo} />
               </div>
-            </motion.div>
+            </article>
           ))}
         </div>
+
+        <h3 className="font-display text-2xl font-extrabold uppercase mb-4">
+          {t('Dự án khác', 'Other projects')}
+        </h3>
+        <ul className="border-t-2 border-ink">
+          {otherProjects.map((project) => (
+            <li
+              key={project.title}
+              className="grid gap-y-3 gap-x-10 border-b border-line py-6 md:grid-cols-[1fr_1.4fr] lg:grid-cols-[1fr_1.4fr_14rem_auto] lg:items-baseline"
+            >
+              <h4 className="font-display text-2xl font-bold uppercase leading-tight">{project.title}</h4>
+              <p className="text-graphite leading-relaxed max-w-[60ch]">{project.description}</p>
+              <p className="text-sm font-medium md:col-start-2 lg:col-start-auto">
+                {project.technologies.join(' / ')}
+              </p>
+              <div className="md:col-start-2 lg:col-start-auto">
+                <ProjectLinks github={project.github} demo={project.demo} />
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

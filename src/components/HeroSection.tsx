@@ -1,206 +1,111 @@
 import { motion, Variants } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Download, ArrowDown, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import sampleAvatar from '@/assets/sample-avatar.svg';
+
+// Black-and-white portrait for the hero. Drop the file into src/assets and
+// import it here, e.g. `import portrait from '@/assets/portrait.jpg'`.
+// While this is null the hero renders as a type-only composition.
+const portrait: string | null = null;
 
 const HeroSection = () => {
   const { t } = useLanguage();
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
+  const sequence: Variants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.09, delayChildren: 0.15 } },
   };
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
-    },
+  const rise: Variants = {
+    hidden: { y: '105%' },
+    visible: { y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+  };
+
+  const fade: Variants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
   };
 
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="relative min-h-[100svh] flex items-end overflow-hidden bg-black text-paper-light pt-24 lg:pt-32 pb-[calc(var(--dock-height)+2.5rem)]"
     >
-      {/* Background gradient effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      </div>
+      {portrait && (
+        <div className="absolute inset-y-0 right-0 w-full md:w-[62%]" aria-hidden>
+          <img
+            src={portrait}
+            alt=""
+            className="h-full w-full object-cover object-top grayscale contrast-125 opacity-60 md:opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
+        </div>
+      )}
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          className="max-w-4xl mx-auto text-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+      <motion.div
+        className="container relative mx-auto px-4 sm:px-6"
+        variants={sequence}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.p variants={fade} className="kicker flex items-center gap-4 text-paper-light/60 mb-6">
+          <span className="h-0.5 w-10 bg-paper-light/60" aria-hidden />
+          <span>Software Engineer / {t('TP. Hồ Chí Minh', 'Ho Chi Minh City')}</span>
+        </motion.p>
+
+        <h1
+          className="font-display font-black uppercase leading-[0.9] tracking-[-0.015em] mb-10"
+          style={{ fontSize: 'clamp(3.75rem, min(14vw, 20svh), 12rem)' }}
         >
-          {/* Avatar */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <Avatar className="w-32 h-32 mx-auto border-4 border-primary/20 shadow-lg">
-              <AvatarImage src={sampleAvatar} alt="Lê Tuấn Thông" />
-              <AvatarFallback className="text-3xl font-heading font-bold bg-primary text-primary-foreground">
-                LTT
-              </AvatarFallback>
-            </Avatar>
-          </motion.div>
-
-          {/* Greeting */}
-          <motion.p
-            className="text-primary font-mono text-lg mb-4"
-            variants={itemVariants}
-          >
-            {t('Xin chào, tôi là', 'Hello, I am')}
-          </motion.p>
-
-          {/* Name */}
-          <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-4 text-foreground"
-            variants={itemVariants}
-          >
-            Lê Tuấn Thông
-          </motion.h1>
-
-          {/* Title */}
-          <motion.h2
-            className="text-3xl md:text-4xl lg:text-5xl font-heading font-semibold text-muted-foreground mb-8"
-            variants={itemVariants}
-          >
-            Software Engineer
-          </motion.h2>
-
-          {/* Description */}
-          <motion.p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
-            variants={itemVariants}
-          >
-            {t(
-              <>Lập trình viên với hơn <span className="text-primary font-semibold">2 năm kinh nghiệm</span> phát triển web. Đam mê xây dựng các hệ thống backend mạnh mẽ, tối ưu và có khả năng mở rộng cao.</>,
-              <>Developer with over <span className="text-primary font-semibold">2 years of experience</span> in web development. Passionate about building robust, optimized and highly scalable backend systems.</>
-            )}
-          </motion.p>
-
-          {/* Contact Info */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-6 mb-10 text-sm"
-            variants={itemVariants}
-          >
-            <a
-              href="mailto:contact@dev1sme.cloud"
-              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Mail size={18} />
-              <span>contact@dev1sme.cloud</span>
-            </a>
-            <a
-              href="tel:0938179726"
-              className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Phone size={18} />
-              <span>0938 179 726</span>
-            </a>
-            <span className="flex items-center gap-2 text-muted-foreground">
-              <MapPin size={18} />
-              <span>{t('TP. Hồ Chí Minh', 'Ho Chi Minh City')}</span>
+          {['Lê Tuấn', 'Thông.'].map((line) => (
+            <span key={line} className="block overflow-hidden pt-[0.08em]">
+              <motion.span variants={rise} className="block">
+                {line}
+              </motion.span>
             </span>
-          </motion.div>
+          ))}
+        </h1>
 
-          {/* CTA Buttons */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-4 mb-12"
-            variants={itemVariants}
-          >
-            <a href="#contact" className="btn-primary">
-              <Mail size={20} />
-              {t('Liên hệ ngay', 'Contact me')}
-            </a>
-            <a href="#" className="btn-outline">
-              <Download size={20} />
-              {t('Tải CV', 'Download CV')}
-            </a>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            className="flex justify-center gap-3 sm:gap-4"
-            variants={itemVariants}
-          >
-            <a
-              href="https://github.com/dev1sme"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-              aria-label="GitHub"
-            >
-              <Github className="w-5 h-5 sm:w-6 sm:h-6" />
-            </a>
-            <a
-              href="https://linkedin.com/in/dev1sme"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
-            </a>
-            <a
-              href="https://instagram.com/letuanthong"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
-            </a>
-            <a
-              href="https://facebook.com/letuanthong.35"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-              aria-label="Facebook"
-            >
-              <Facebook className="w-5 h-5 sm:w-6 sm:h-6" />
-            </a>
-            <a
-              href="https://x.com/dev1sme"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 sm:p-3 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300"
-              aria-label="X (Twitter)"
-            >
-              <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
-            </a>
-          </motion.div>
-
-          {/* Scroll indicator - below social links */}
-          <motion.a
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ y: [0, 10, 0] }}
-            transition={{ 
-              y: { duration: 2, repeat: Infinity },
-              opacity: { delay: 1.5, duration: 0.5 }
-            }}
-            className="mt-12 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
-          >
-            <ArrowDown size={24} />
-          </motion.a>
+        <motion.div variants={fade} className="max-w-2xl">
+          <p className="border-l-4 border-paper-light pl-5 text-xl md:text-2xl font-semibold leading-snug mb-6">
+            {t(
+              'Backend engineer. Xây hệ thống mạnh mẽ, tối ưu và mở rộng được.',
+              'Backend engineer. I build systems that are robust, fast and ready to scale.'
+            )}
+          </p>
+          <p className="text-paper-light/65 leading-relaxed mb-10 max-w-xl">
+            {t(
+              'Hơn 2 năm phát triển web với Java và Spring Boot, từ nền tảng giao hàng đến ứng dụng enterprise cho team quốc tế.',
+              'Over 2 years building for the web with Java and Spring Boot, from a delivery platform to enterprise applications for international teams.'
+            )}
+          </p>
         </motion.div>
-      </div>
+
+        <motion.div variants={fade} className="flex flex-wrap items-stretch gap-3 mb-8">
+          <a href="#contact" className="btn-solid">
+            <Mail size={20} strokeWidth={2.25} />
+            {t('Liên hệ', 'Get in touch')}
+          </a>
+          <div className="flex items-center gap-4 border border-paper-light/30 px-6 py-3">
+            <span className="font-display text-5xl font-extrabold leading-none">2+</span>
+            <span className="kicker text-paper-light/70 leading-tight">
+              {t('Năm', 'Years of')}
+              <br />
+              {t('kinh nghiệm', 'experience')}
+            </span>
+          </div>
+        </motion.div>
+
+        <motion.p variants={fade} className="text-sm text-paper-light/45">
+          <a href="mailto:contact@dev1sme.cloud" className="hover:text-paper-light transition-colors">
+            contact@dev1sme.cloud
+          </a>
+          <span className="mx-3" aria-hidden>/</span>
+          <a href="tel:0938179726" className="hover:text-paper-light transition-colors">
+            0938 179 726
+          </a>
+        </motion.p>
+      </motion.div>
     </section>
   );
 };

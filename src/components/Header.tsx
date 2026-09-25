@@ -1,15 +1,13 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
-import ThemeSwitcher from './ThemeSwitcher';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Header = () => {
   const { t } = useLanguage();
-  
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const navItems = [
-    { label: t('Trang chủ', 'Home'), href: '#home' },
     { label: t('Giới thiệu', 'About'), href: '#about' },
     { label: t('Kinh nghiệm', 'Experience'), href: '#experience' },
     { label: t('Kỹ năng', 'Skills'), href: '#skills' },
@@ -18,102 +16,86 @@ const Header = () => {
     { label: t('Liên hệ', 'Contact'), href: '#contact' },
   ];
 
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-lg border-b border-border/50' : 'bg-transparent'
-      }`}
-    >
-      <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
-        <div className="flex items-center justify-between gap-2">
-          {/* Language & Theme Switcher - responsive */}
-          <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-            <LanguageSwitcher />
-            <ThemeSwitcher />
-          </div>
-
-          {/* Desktop Navigation */}
-          <motion.ul
-            className="hidden lg:flex items-center gap-4 xl:gap-8"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md text-paper-light">
+      <div className="container mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4 border-b border-paper-light/15">
+        <div className="flex items-center gap-4 min-w-0">
+          <a
+            href="#home"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('#home');
+            }}
+            className="font-display text-2xl leading-none tracking-[-0.01em] uppercase"
           >
-            {navItems.map((item, index) => (
-              <li key={item.href}>
+            <span className="font-black">Dev1</span>
+            <span className="font-medium text-paper-light/70">sme</span>
+          </a>
+          <span className="hidden sm:block h-5 w-px bg-paper-light/25" aria-hidden />
+          <span className="hidden sm:block kicker text-paper-light/60 truncate">
+            {t('Hồ sơ kỹ sư', 'Engineer profile')}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            className="lg:hidden p-2 -mr-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={t('Mở menu', 'Toggle menu')}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Desktop section nav */}
+      <nav className="hidden lg:block border-b border-paper-light/15">
+        <ul className="container mx-auto flex justify-center gap-10 h-10 items-center">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
+                className="kicker text-paper-light/70 hover:text-paper-light transition-colors"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Mobile section nav */}
+      {isMobileMenuOpen && (
+        <nav className="lg:hidden border-b border-paper-light/15 bg-black">
+          <ul className="container mx-auto px-4 sm:px-6 py-2">
+            {navItems.map((item) => (
+              <li key={item.href} className="border-b border-paper-light/10 last:border-0">
                 <a
                   href={item.href}
-                  className="nav-link text-xs xl:text-sm font-medium whitespace-nowrap"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
+                  className="block py-3 font-display text-2xl font-bold uppercase"
                 >
-                  <span className="text-primary font-mono text-xs mr-1">0{index + 1}.</span>
                   {item.label}
                 </a>
               </li>
             ))}
-          </motion.ul>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors flex-shrink-0"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              className="lg:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <ul className="flex flex-col py-4 px-4 sm:px-6">
-                {navItems.map((item, index) => (
-                  <li key={item.href}>
-                    <a
-                      href={item.href}
-                      className="block py-3 text-muted-foreground hover:text-primary transition-colors"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(item.href);
-                      }}
-                    >
-                      <span className="text-primary font-mono text-xs mr-2">0{index + 1}.</span>
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+          </ul>
+        </nav>
+      )}
     </header>
   );
 };

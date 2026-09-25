@@ -1,102 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap&subset=vietnamese');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap');
-
-/* Design System for Lê Tuấn Thông Portfolio
-   Minimalist theme with warm neutral tones */
+/* Design system for Lê Tuấn Thông — "engineer dossier".
+   Strict grayscale, condensed display type, square edges.
+   Sections alternate between ink (dark) and paper (light) grounds;
+   there is no global dark mode. */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 15%;
+    /* Raw palette */
+    --black: 0 0% 1%;        /* #030303 */
+    --charcoal: 0 0% 4%;     /* #0a0a0a */
+    --ink: 0 0% 7%;          /* #111111 */
+    --paper: 0 0% 93%;       /* #ededed */
+    --paper-light: 0 0% 98%; /* #fafafa */
+    --ghost: 0 0% 76%;       /* #c2c2c2 */
+    --line: 0 0% 78%;        /* #c6c6c6 */
+    --graphite: 0 0% 42%;    /* #6c6c6c */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+    /* shadcn tokens, mapped onto the paper ground */
+    --background: var(--paper);
+    --foreground: var(--ink);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --card: var(--paper-light);
+    --card-foreground: var(--ink);
 
-    --primary: 0 0% 20%;
-    --primary-foreground: 0 0% 98%;
+    --popover: var(--paper-light);
+    --popover-foreground: var(--ink);
 
-    --secondary: 0 0% 94%;
-    --secondary-foreground: 0 0% 20%;
+    --primary: var(--ink);
+    --primary-foreground: var(--paper-light);
 
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 45%;
+    --secondary: 0 0% 88%;
+    --secondary-foreground: var(--ink);
 
-    --accent: 24 10% 50%;
-    --accent-foreground: 0 0% 98%;
+    --muted: 0 0% 88%;
+    --muted-foreground: var(--graphite);
 
-    --destructive: 0 60% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --accent: var(--ghost);
+    --accent-foreground: var(--ink);
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 0 0% 20%;
+    --destructive: 0 0% 7%;
+    --destructive-foreground: var(--paper-light);
 
-    --radius: 0.5rem;
+    --border: var(--line);
+    --input: var(--line);
+    --ring: var(--ink);
 
-    /* Custom tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 20%), hsl(0 0% 35%));
-    --gradient-accent: linear-gradient(135deg, hsl(24 10% 50%), hsl(24 15% 55%));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
-    --shadow-glow: 0 0 30px hsl(0 0% 20% / 0.08);
-    --shadow-card: 0 2px 12px hsl(0 0% 0% / 0.06);
+    --radius: 0rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 15%;
-    --sidebar-primary: 0 0% 20%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 94%;
-    --sidebar-accent-foreground: 0 0% 20%;
-    --sidebar-border: 0 0% 88%;
-    --sidebar-ring: 0 0% 20%;
-  }
+    --sidebar-background: var(--paper);
+    --sidebar-foreground: var(--ink);
+    --sidebar-primary: var(--ink);
+    --sidebar-primary-foreground: var(--paper-light);
+    --sidebar-accent: 0 0% 88%;
+    --sidebar-accent-foreground: var(--ink);
+    --sidebar-border: var(--line);
+    --sidebar-ring: var(--ink);
 
-  .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 92%;
-    
-    --card: 0 0% 11%;
-    --card-foreground: 0 0% 92%;
-    
-    --popover: 0 0% 11%;
-    --popover-foreground: 0 0% 92%;
-    
-    --primary: 0 0% 85%;
-    --primary-foreground: 0 0% 8%;
-    
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 92%;
-    
-    --muted: 0 0% 18%;
-    --muted-foreground: 0 0% 55%;
-    
-    --accent: 24 10% 55%;
-    --accent-foreground: 0 0% 8%;
-    
-    --destructive: 0 55% 50%;
-    --destructive-foreground: 0 0% 92%;
-    
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 85%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 85%), hsl(0 0% 70%));
-    --shadow-glow: 0 0 30px hsl(0 0% 100% / 0.05);
-    --shadow-card: 0 2px 12px hsl(0 0% 0% / 0.3);
-
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 92%;
-    --sidebar-primary: 0 0% 85%;
-    --sidebar-primary-foreground: 0 0% 8%;
-    --sidebar-accent: 0 0% 16%;
-    --sidebar-accent-foreground: 0 0% 92%;
-    --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 0 0% 85%;
+    /* Height of the fixed bottom bar, reserved at the end of the page */
+    --dock-height: 3.5rem;
   }
 }
 
@@ -111,73 +77,76 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+  h1, h2, h3, h4 {
+    @apply font-display;
   }
 
-  code, pre {
-    font-family: 'Fira Code', monospace;
+  section[id] {
+    scroll-margin-top: 3.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    section[id] {
+      scroll-margin-top: 6rem;
+    }
+  }
+
+  ::selection {
+    background: hsl(var(--ink));
+    color: hsl(var(--paper-light));
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
 @layer components {
-  .section-heading {
-    @apply text-3xl md:text-4xl font-bold text-foreground mb-2;
+  /* Grounds */
+  .ground-ink {
+    @apply bg-ink text-paper-light;
   }
 
-  .section-subheading {
-    @apply text-muted-foreground text-lg mb-12;
+  .ground-paper {
+    @apply bg-paper text-ink;
   }
 
-  .gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
+  .ground-paper-light {
+    @apply bg-paper-light text-ink;
   }
 
-  .card-glass {
-    @apply bg-card border border-border rounded-xl;
-    box-shadow: var(--shadow-card);
+  /* Small tracked label, used sparingly as the reference does */
+  .kicker {
+    @apply font-display text-sm font-semibold uppercase tracking-[0.14em];
   }
 
-  .glow-effect {
-    box-shadow: var(--shadow-glow);
+  /* Big condensed section title */
+  .display-title {
+    @apply font-display font-extrabold uppercase leading-[0.95] tracking-[-0.01em];
+    font-size: clamp(3rem, 8vw, 6.5rem);
   }
 
-  .nav-link {
-    @apply relative text-muted-foreground hover:text-primary transition-colors duration-300;
+  /* Oversized light-grey numerals that sit behind or beside data */
+  .ghost-figure {
+    @apply font-display font-extrabold leading-[0.8] text-ghost select-none;
   }
 
-  .nav-link::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  /* Underlined text link with an external arrow */
+  .dossier-link {
+    @apply inline-flex items-center gap-1.5 font-display text-base font-bold uppercase tracking-[0.08em] border-b-2 border-current pb-0.5 transition-opacity hover:opacity-60;
   }
 
-  .nav-link:hover::after {
-    @apply w-full;
-  }
-
-  .skill-tag {
-    @apply px-4 py-2 rounded-full text-sm font-medium bg-secondary text-foreground border border-border hover:border-primary hover:text-primary transition-all duration-300;
-  }
-
-  .timeline-dot {
-    @apply w-4 h-4 rounded-full bg-primary border-4 border-background;
-    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.15);
-  }
-
-  .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium bg-primary text-primary-foreground transition-all duration-300 hover:opacity-90;
-    box-shadow: 0 2px 8px hsl(var(--primary) / 0.2);
-  }
-
-  .btn-primary:hover {
-    box-shadow: 0 4px 16px hsl(var(--primary) / 0.25);
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+  .btn-solid {
+    @apply inline-flex items-center gap-3 px-7 py-4 font-display text-lg font-bold uppercase tracking-[0.06em] bg-ghost text-ink transition-colors hover:bg-paper-light;
   }
 }

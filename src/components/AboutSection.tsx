@@ -1,136 +1,86 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Calendar, MapPin, Mail, Phone, User } from 'lucide-react';
+import SectionHeading from './SectionHeading';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const AboutSection = () => {
   const { t } = useLanguage();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const personalInfo = [
-    { icon: Calendar, label: t('Ngày sinh', 'Date of Birth'), value: '01/01/2001' },
-    { icon: MapPin, label: t('Địa chỉ', 'Address'), value: t('Nhà Bè, TP. Hồ Chí Minh', 'Nha Be, Ho Chi Minh City') },
-    { icon: Mail, label: 'Email', value: 'contact@dev1sme.cloud' },
-    { icon: Phone, label: t('Điện thoại', 'Phone'), value: '0938 179 726' },
+    { label: t('Ngày sinh', 'Date of birth'), value: '01/01/2001' },
+    { label: t('Địa chỉ', 'Address'), value: t('Nhà Bè, TP. Hồ Chí Minh', 'Nha Be, Ho Chi Minh City') },
+    { label: 'Email', value: 'contact@dev1sme.cloud', href: 'mailto:contact@dev1sme.cloud' },
+    { label: t('Điện thoại', 'Phone'), value: '0938 179 726', href: 'tel:0938179726' },
   ];
 
   const stats = [
-    { value: '2+', label: t('Năm kinh nghiệm', 'Years of Experience') },
-    { value: '5+', label: t('Dự án hoàn thành', 'Projects Completed') },
-    { value: '3', label: t('Quốc gia học tập', 'Countries Studied') },
+    { value: '5+', label: t('Dự án hoàn thành', 'Projects completed') },
+    { value: '3', label: t('Quốc gia học tập', 'Countries studied in') },
   ];
 
   return (
-    <section id="about" className="py-24 relative" ref={ref}>
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-heading">
-            <span className="text-primary font-mono text-lg font-normal">01.</span>{' '}
-            {t('Giới thiệu', 'About Me')}
-          </h2>
-          <p className="section-subheading">{t('Về bản thân tôi', 'About myself')}</p>
-        </motion.div>
+    <section id="about" className="ground-paper py-24 lg:py-32">
+      <div className="container mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-14 lg:gap-10">
+        <div className="lg:col-span-7">
+          <SectionHeading
+            kicker={t('Giới thiệu', 'About')}
+            title={t(<>Backend cho<br />tải thật</>, <>Backends for<br />real load</>)}
+            className="mb-10"
+          />
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-          {/* About Text */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <div className="card-glass p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-lg bg-primary/10">
-                  <User className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-heading font-semibold">{t('Tổng quan', 'Overview')}</h3>
-              </div>
-              
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  {t(
-                    <>Là một <span className="text-primary font-medium">Backend Engineer</span> với hơn 2 năm kinh nghiệm, tôi chuyên về phát triển các hệ thống web với công nghệ Java và Spring Boot. Có kinh nghiệm làm việc với các dự án từ startup đến doanh nghiệp lớn.</>,
-                    <>As a <span className="text-primary font-medium">Backend Engineer</span> with over 2 years of experience, I specialize in developing web systems with Java and Spring Boot technology. Experienced working with projects from startups to large enterprises.</>
-                  )}
-                </p>
-                <p>
-                  {t(
-                    'Tôi có nền tảng học vấn vững chắc từ Đại học Tôn Đức Thắng và đã tham gia các chương trình trao đổi quốc tế tại Trung Quốc và Hàn Quốc, mở rộng kiến thức về AI, Machine Learning và Cloud Computing.',
-                    'I have a solid educational foundation from Ton Duc Thang University and have participated in international exchange programs in China and South Korea, expanding my knowledge in AI, Machine Learning and Cloud Computing.'
-                  )}
-                </p>
-                <p>
-                  {t(
-                    'Luôn không ngừng học hỏi và cập nhật các công nghệ mới, với mục tiêu trở thành một kỹ sư phần mềm toàn diện và đóng góp giá trị cho các dự án phức tạp.',
-                    'Always continuously learning and updating new technologies, with the goal of becoming a comprehensive software engineer and contributing value to complex projects.'
-                  )}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Personal Info Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="space-y-4"
-          >
-            <h3 className="text-xl font-heading font-semibold mb-6">{t('Thông tin cá nhân', 'Personal Information')}</h3>
-            
-            <div className="grid sm:grid-cols-2 gap-4">
-              {personalInfo.map((info, index) => (
-                <motion.div
-                  key={info.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                  className="card-glass p-5 hover:border-primary/50 transition-colors"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <info.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                        {info.label}
-                      </p>
-                      <p className="text-sm font-medium text-foreground mt-1">
-                        {info.value}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 mt-8">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-                  className="card-glass p-5 text-center"
-                >
-                  <p className="text-3xl font-heading font-bold text-primary mb-1">
-                    {stat.value}
-                  </p>
-                  <p className="text-xs text-muted-foreground">{stat.label}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <p className="text-2xl md:text-[1.75rem] font-semibold leading-snug max-w-[34ch] mb-8">
+            {t(
+              'Backend Engineer hơn 2 năm kinh nghiệm, chuyên phát triển hệ thống web với Java và Spring Boot, từ startup đến doanh nghiệp lớn.',
+              'Backend Engineer with over 2 years of experience, building web systems with Java and Spring Boot for startups and large enterprises.'
+            )}
+          </p>
+          <div className="space-y-4 text-graphite leading-relaxed max-w-[62ch]">
+            <p>
+              {t(
+                'Nền tảng từ Đại học Tôn Đức Thắng, cùng các chương trình trao đổi tại Trung Quốc và Hàn Quốc về AI, Machine Learning và Cloud Computing.',
+                'Grounded at Ton Duc Thang University, then broadened through exchange programs in China and South Korea on AI, Machine Learning and Cloud Computing.'
+              )}
+            </p>
+            <p>
+              {t(
+                'Mục tiêu: trở thành kỹ sư phần mềm toàn diện, đóng góp giá trị cho các dự án phức tạp.',
+                'The goal: become a well-rounded software engineer who adds real value to complex projects.'
+              )}
+            </p>
+          </div>
         </div>
+
+        <aside className="lg:col-span-5 lg:mt-24 self-start bg-paper-light border-t-2 border-ink p-6 sm:p-8">
+          <p className="kicker text-graphite mb-4">{t('Hồ sơ', 'Profile')}</p>
+          <p className="ghost-figure text-[7.5rem] sm:text-[9rem] mb-2">2+</p>
+          <p className="text-xl font-semibold mb-8">
+            {t('Năm kinh nghiệm phát triển backend.', 'Years of backend development.')}
+          </p>
+
+          <dl className="border-t border-line">
+            {personalInfo.map((info) => (
+              <div key={info.label} className="flex justify-between gap-4 py-3 border-b border-line text-sm">
+                <dt className="text-graphite">{info.label}</dt>
+                <dd className="font-medium text-right">
+                  {info.href ? (
+                    <a href={info.href} className="underline decoration-line underline-offset-4 hover:decoration-ink">
+                      {info.value}
+                    </a>
+                  ) : (
+                    info.value
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="grid grid-cols-2 gap-6 mt-8">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="font-display text-5xl font-extrabold leading-none mb-1">{stat.value}</p>
+                <p className="text-sm text-graphite">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </aside>
       </div>
     </section>
   );
