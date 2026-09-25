@@ -1,11 +1,7 @@
 import { motion, Variants } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-// Black-and-white portrait for the hero. Drop the file into src/assets and
-// import it here, e.g. `import portrait from '@/assets/portrait.jpg'`.
-// While this is null the hero renders as a type-only composition.
-const portrait: string | null = null;
+import portrait from '@/assets/portrait.jpg';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -30,17 +26,16 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-[100svh] flex items-end overflow-hidden bg-black text-paper-light pt-24 lg:pt-32 pb-[calc(var(--dock-height)+2.5rem)]"
     >
-      {portrait && (
-        <div className="absolute inset-y-0 right-0 w-full md:w-[62%]" aria-hidden>
-          <img
-            src={portrait}
-            alt=""
-            className="h-full w-full object-cover object-top grayscale contrast-125 opacity-60 md:opacity-80"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
-        </div>
-      )}
+      {/* Portrait is shot on a light backdrop; darken it so it sits in the black ground */}
+      <div className="absolute inset-y-0 right-0 w-full md:w-[58%]" aria-hidden>
+        <img
+          src={portrait}
+          alt=""
+          className="h-full w-full object-cover object-[60%_18%] grayscale contrast-[1.35] brightness-[0.55] opacity-50 md:opacity-100"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50" />
+      </div>
 
       <motion.div
         className="container relative mx-auto px-4 sm:px-6"
