@@ -24,10 +24,9 @@ const Header = () => {
               e.preventDefault();
               scrollTo('#home');
             }}
-            className="font-display text-2xl leading-none tracking-[-0.01em] uppercase"
+            className="font-display text-2xl font-extrabold leading-none tracking-[0.02em] uppercase text-paper-light"
           >
-            <span className="font-black">{ui.brand.strong}</span>
-            <span className="font-medium text-paper-light/70">{ui.brand.light}</span>
+            {ui.brand.name}
           </a>
           <span className="hidden sm:block h-5 w-px bg-paper-light/25" aria-hidden />
           <span className="hidden sm:block kicker text-paper-light/60 truncate">{l(ui.brand.tagline)}</span>

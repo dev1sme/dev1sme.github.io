@@ -78,7 +78,7 @@ export const SECTION_IDS = ['home', 'about', 'experience', 'skills', 'education'
 export type SectionId = (typeof SECTION_IDS)[number];
 
 export interface Ui {
-  brand: { strong: string; light: string; tagline: Localized };
+  brand: { name: string; tagline: Localized };
   sections: Record<SectionId, { label: Localized; title?: Localized }>;
   fields: Record<'birthDate' | 'address' | 'email' | 'phone' | 'social', Localized>;
   header: { menuToggle: Localized };

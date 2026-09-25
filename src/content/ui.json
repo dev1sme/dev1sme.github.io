@@ -1,7 +1,6 @@
 {
   "brand": {
-    "strong": "Dev1",
-    "light": "sme",
+    "name": "dev1sme",
     "tagline": { "vi": "Hồ sơ kỹ sư", "en": "Engineer profile" }
   },
   "sections": {
