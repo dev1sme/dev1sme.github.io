@@ -4,7 +4,7 @@
     "home": {"label": {"vi": "Mở đầu", "en": "Intro"}},
     "about": {
       "label": {"vi": "Giới thiệu", "en": "About"},
-      "title": {"vi": "Tập trung\nvào backend", "en": "Focused on\nthe backend"}
+      "title": {"vi": "Về tôi", "en": "About me"}
     },
     "experience": {
       "label": {"vi": "Kinh nghiệm", "en": "Experience"},
